@@ -1,0 +1,4 @@
+enum AuthenticationService {
+  GOOGLE,
+  APPLE,
+}
