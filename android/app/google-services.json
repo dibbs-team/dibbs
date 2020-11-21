@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "974508739268",
+    "firebase_url": "https://dibbs-d61a0.firebaseio.com",
+    "project_id": "dibbs-d61a0",
+    "storage_bucket": "dibbs-d61a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974508739268:android:2ef705ff59021e66861791",
+        "android_client_info": {
+          "package_name": "se.lkpg.dibbs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974508739268-9cn54v7vl5bbr8leoj3gi8b9b54ec6ei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "se.lkpg.dibbs",
+            "certificate_hash": "c8732b916f363c5eb7487d6ce5db63b331fdaecb"
+          }
+        },
+        {
+          "client_id": "974508739268-ia4fkg1eclnkb5jpmc2a5sm8g59o7je6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkaXZZSvp_nq7fl4A_ZSq8oKb4C2axClY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974508739268-ia4fkg1eclnkb5jpmc2a5sm8g59o7je6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "974508739268-uqdcr3lpthlc62t253fdmipcftqdg6lu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "se.lkpg.dibbs"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

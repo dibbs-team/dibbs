@@ -1,4 +1,4 @@
-package com.example.dibbs
+package se.lkpg.dibbs
 
 import io.flutter.embedding.android.FlutterActivity
 
