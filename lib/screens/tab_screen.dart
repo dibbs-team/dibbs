@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'feed_screen.dart';
+import 'profile_screen.dart';
 import '../lang/my_localizations.dart';
 
 class TabScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _TabScreenState extends State<TabScreen> {
   static final List<Widget> _tabs = <Widget>[
     FeedScreen(),
     Scaffold(), //* Instead of UploadProductScreen.
-    Scaffold(), //* Instead of ProfileScreen()
+    ProfileScreen(),
   ];
 
   /// Switches tab.

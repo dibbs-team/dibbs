@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'screens/auth_screen.dart';
+import 'screens/tab_screen.dart';
 import 'lang/my_localizations.dart';
 import 'lang/my_localizations_delegate.dart';
 
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
             return Scaffold();
           }
           var signedIn = userSnapshot.hasData;
-          return signedIn ? Scaffold() : Scaffold();
+          return signedIn ? TabScreen() : AuthScreen();
         },
       ),
     );
