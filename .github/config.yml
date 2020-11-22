@@ -1,5 +1,5 @@
-PR_TITLE_REGEX: /.*/i
-COMMIT_MESSAGE_REGEX: /^(feat|fix|test|design|refactor|setup|docs|import|revert)(\([a-z ]+\))?: [a-z\d _\-\.\(\)\/\\"'%&$<>!#*]+(\n.*)*/i
+PR_TITLE_REGEX: /.*/
+COMMIT_MESSAGE_REGEX: /^(feat|fix|test|design|refactor|setup|docs|import|revert)(\([a-z ]+\))?: [a-z\d _\-\.\(\)\/\\"'%&$<>!#*]+(\n.*)*/
 OUTPUT_TITLE_FAIL: Message validation failed
 OUTPUT_TITLE_SUCCESS: Message validation passed
 VALID_COMMIT_MESSAGE: Commit messages are valid
