@@ -168,6 +168,20 @@ class MyLocalizations {
         desc: 'Sign out, showed on button for signing out.',
       );
 
+  String get closeInformation => Intl.message(
+        "Let's start!",
+        name: 'closeInformation',
+        desc: 'Text on button on information screen.',
+      );
+
+  String informationWelcome(String name) => Intl.message(
+        'Welcome $name!',
+        name: 'informationWelcome',
+        args: [name],
+        desc: 'Welcome text on information screen.',
+        examples: const {'name': 'Jane'},
+      );
+
   String get chooseUploadTypeTitle => Intl.message(
         'Upload ad',
         name: 'chooseUploadTypeTitle',
