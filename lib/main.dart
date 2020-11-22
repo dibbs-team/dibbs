@@ -4,7 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'screens/auth_screen.dart';
+import 'screens/loading_screen.dart';
 import 'screens/tab_screen.dart';
+import 'widgets/information/one_time_information.dart';
 import 'lang/my_localizations.dart';
 import 'lang/my_localizations_delegate.dart';
 
@@ -33,10 +35,12 @@ class MyApp extends StatelessWidget {
         builder: (ctx, userSnapshot) {
           // Show splash screen while checking if user is signed in.
           if (userSnapshot.connectionState == ConnectionState.waiting) {
-            return Scaffold();
+            return LoadingScreen();
           }
           var signedIn = userSnapshot.hasData;
-          return signedIn ? TabScreen() : AuthScreen();
+          return signedIn
+              ? OneTimeInformation(showAfter: TabScreen())
+              : AuthScreen();
         },
       ),
     );
