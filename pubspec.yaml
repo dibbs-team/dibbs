@@ -27,6 +27,7 @@ dependencies:
 
   # Third party
   auth_buttons: ^0.0.4
+  tap_debouncer: ^1.0.1
 
 dev_dependencies:
   flutter_test:

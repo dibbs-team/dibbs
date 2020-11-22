@@ -46,7 +46,7 @@ class MyLocalizations {
       );
 
   String get uploadScreenTitle => Intl.message(
-        'Upload product',
+        'Upload ad',
         name: 'uploadScreenTitle',
         desc: 'Name of upload screen.',
       );
@@ -89,13 +89,13 @@ class MyLocalizations {
       );
 
   String get successfulUpload => Intl.message(
-        'Product upload was successful.',
+        'Ad upload was successful.',
         name: 'successfulUpload',
         desc: 'Shown in snackbar after upload was successful.',
       );
 
   String get unsuccessfulUpload => Intl.message(
-        'Product upload was unsuccessful.',
+        'Ad upload was unsuccessful.',
         name: 'unsuccessfulUpload',
         desc: 'Shown in snackbar after upload was unsuccessful.',
       );
@@ -103,13 +103,13 @@ class MyLocalizations {
   String get nextStep => Intl.message(
         'Next',
         name: 'nextStep',
-        desc: 'Text on button to go to next step when uploading a product.',
+        desc: 'Text on button to go to next step when uploading a ad.',
       );
 
-  String get uploadProduct => Intl.message(
+  String get uploadAd => Intl.message(
         'Publish',
-        name: 'uploadProduct',
-        desc: 'Text on button to upload a product.',
+        name: 'uploadAd',
+        desc: 'Text on button to upload a ad.',
       );
 
   String get errorOccured => Intl.message(
@@ -126,7 +126,7 @@ class MyLocalizations {
         'Step $current/$total',
         name: 'uploadStep',
         args: [current, total],
-        desc: 'AppBar text on when uploading product.',
+        desc: 'AppBar text on when uploading ad.',
         examples: const {'current': 2, 'total': 4},
       );
 
@@ -134,7 +134,7 @@ class MyLocalizations {
         '$step. Upload pictures',
         name: 'picturesStepTitle',
         args: [step],
-        desc: 'Title on pictures step when uploading product.',
+        desc: 'Title on pictures step when uploading ad.',
         examples: const {'step': 1},
       );
 
@@ -142,7 +142,7 @@ class MyLocalizations {
         '$step. Describe your item',
         name: 'descriptionStepTitle',
         args: [step],
-        desc: 'Title on description step when uploading product.',
+        desc: 'Title on description step when uploading ad.',
         examples: const {'step': 2},
       );
 
@@ -150,7 +150,7 @@ class MyLocalizations {
         '$step. Set your rules',
         name: 'rulesStepTitle',
         args: [step],
-        desc: 'Title on rules step when uploading product.',
+        desc: 'Title on rules step when uploading ad.',
         examples: const {'step': 3},
       );
 
@@ -158,7 +158,7 @@ class MyLocalizations {
         '$step. Set up payment',
         name: 'paymentStepTitle',
         args: [step],
-        desc: 'Title on payment step when uploading product.',
+        desc: 'Title on payment step when uploading ad.',
         examples: const {'step': 4},
       );
 
@@ -166,5 +166,29 @@ class MyLocalizations {
         'Sign out',
         name: 'signOut',
         desc: 'Sign out, showed on button for signing out.',
+      );
+
+  String get chooseUploadTypeTitle => Intl.message(
+        'Upload ad',
+        name: 'chooseUploadTypeTitle',
+        desc: 'AppBar title when choosing upload type.',
+      );
+
+  String get chooseUploadTypeHint => Intl.message(
+        'I want to...',
+        name: 'chooseUploadTypeHint',
+        desc: 'Hint when choosing upload type.',
+      );
+
+  String get uploadTypeFind => Intl.message(
+        'Find',
+        name: 'uploadTypeFind',
+        desc: 'Name of find when choosing type',
+      );
+
+  String get uploadTypeList => Intl.message(
+        'Rent out',
+        name: 'uploadTypeList',
+        desc: 'Name of list ad when choosing type',
       );
 }
