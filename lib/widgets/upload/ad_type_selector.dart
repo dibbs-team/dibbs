@@ -25,10 +25,10 @@ class AdTypeSelector extends StatelessWidget {
             fontSize: 24.0,
           ),
         ),
-        SizedBox(height: 48.0),
+        const SizedBox(height: 48.0),
         Row(
           children: [
-            Spacer(flex: 1),
+            const Spacer(flex: 1),
             Expanded(
               flex: 3,
               child: RaisedButton(
@@ -36,7 +36,7 @@ class AdTypeSelector extends StatelessWidget {
                 child: Text(l10n.uploadTypeFind.toUpperCase()),
               ),
             ),
-            Spacer(flex: 1),
+            const Spacer(flex: 1),
             Expanded(
               flex: 3,
               child: RaisedButton(
@@ -44,7 +44,7 @@ class AdTypeSelector extends StatelessWidget {
                 child: Text(l10n.uploadTypeList.toUpperCase()),
               ),
             ),
-            Spacer(flex: 1),
+            const Spacer(flex: 1),
           ],
         ),
       ],

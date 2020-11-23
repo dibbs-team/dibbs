@@ -43,7 +43,7 @@ class InformationScreen extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
                 Expanded(
                   flex: 18,
                   child: PageView(
@@ -60,7 +60,7 @@ class InformationScreen extends StatelessWidget {
                         .toList(),
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 if (information.length > 1)
                   SmoothPageIndicator(
                     controller: controller, // PageController
@@ -72,7 +72,7 @@ class InformationScreen extends StatelessWidget {
                       spacing: 16.0,
                     ),
                   ),
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: bodyPadding),
                   child: Container(
