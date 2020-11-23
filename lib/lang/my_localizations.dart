@@ -205,4 +205,22 @@ class MyLocalizations {
         name: 'uploadTypeList',
         desc: 'Name of list ad when choosing type',
       );
+
+  String get addCommunityInstruction => Intl.message(
+        'Add community code',
+        name: 'addCommunityInstruction',
+        desc: 'Instructions for adding a community code.',
+      );
+
+  String get addCommunityInputHint => Intl.message(
+        'Code',
+        name: 'addCommunityInputHint',
+        desc: 'Hint for input field for adding a community code.',
+      );
+
+  String get addCommunityFinished => Intl.message(
+        'Continue',
+        name: 'addCommunityFinished',
+        desc: 'Text on button for finishing adding a community.',
+      );
 }
