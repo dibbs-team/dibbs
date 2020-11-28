@@ -223,4 +223,10 @@ class MyLocalizations {
         name: 'addCommunityFinished',
         desc: 'Text on button for finishing adding a community.',
       );
+
+  String get addCommunityDisclaimer => Intl.message(
+        'By creating an account you agree to our Terms of Service and Privacy Policy',
+        name: 'addCommunityDisclaimer',
+        desc: 'Text on screen when adding a community.',
+      );
 }
