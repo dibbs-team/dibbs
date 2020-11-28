@@ -6,7 +6,8 @@ import '../widgets/information/information_card.dart';
 import '../lang/my_localizations.dart';
 
 class InformationScreen extends StatelessWidget {
-  final void Function() onClose;
+  static const routeName = '/information';
+
   final List<Widget> information = [
     InformationCard(),
     InformationCard(),
@@ -16,10 +17,6 @@ class InformationScreen extends StatelessWidget {
   final controller = PageController();
   final name = auth.FirebaseAuth.instance.currentUser.displayName;
 
-  InformationScreen({
-    @required this.onClose,
-  });
-
   @override
   Widget build(BuildContext context) {
     //* Padding for the widget. It's not possible to wrap the whole body in this
@@ -28,64 +25,71 @@ class InformationScreen extends StatelessWidget {
     final l10n = MyLocalizations.of(context);
 
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: bodyPadding),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  l10n.informationWelcome(name).toUpperCase(),
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24.0,
+      body: WillPopScope(
+        //* Should not be able to pop using back button on Android.
+        onWillPop: () async => false,
+        child: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: bodyPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    l10n.informationWelcome(name).toUpperCase(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24.0,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const Spacer(flex: 1),
-                Expanded(
-                  flex: 18,
-                  child: PageView(
-                    controller: controller,
-                    children: information
-                        .map(
-                          (infoCard) => Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: bodyPadding,
+                  const Spacer(flex: 1),
+                  Expanded(
+                    flex: 18,
+                    child: PageView(
+                      controller: controller,
+                      children: information
+                          .map(
+                            (infoCard) => Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: bodyPadding,
+                              ),
+                              child: infoCard,
                             ),
-                            child: infoCard,
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
-                const SizedBox(height: 16.0),
-                if (information.length > 1)
-                  SmoothPageIndicator(
-                    controller: controller, // PageController
-                    count: information.length,
-                    effect: SlideEffect(
-                      activeDotColor: Colors.black,
-                      dotHeight: 8.0,
-                      dotWidth: 8.0,
-                      spacing: 16.0,
+                          )
+                          .toList(),
                     ),
                   ),
-                const Spacer(flex: 1),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: bodyPadding),
-                  child: Container(
-                    width: double.infinity,
-                    child: RaisedButton(
-                      onPressed: onClose,
-                      child: Text(
-                        l10n.closeInformation.toUpperCase(),
+                  const SizedBox(height: 16.0),
+                  if (information.length > 1)
+                    SmoothPageIndicator(
+                      controller: controller, // PageController
+                      count: information.length,
+                      effect: SlideEffect(
+                        activeDotColor: Colors.black,
+                        dotHeight: 8.0,
+                        dotWidth: 8.0,
+                        spacing: 16.0,
                       ),
                     ),
-                  ),
-                )
-              ],
+                  const Spacer(flex: 1),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: bodyPadding),
+                    child: Container(
+                      width: double.infinity,
+                      child: RaisedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          l10n.closeInformation.toUpperCase(),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

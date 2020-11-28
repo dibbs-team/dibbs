@@ -5,8 +5,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'screens/auth_screen.dart';
 import 'screens/loading_screen.dart';
-import 'screens/tab_screen.dart';
-import 'widgets/information/one_time_information.dart';
+import 'screens/add_community_screen.dart';
+import 'screens/information_screen.dart';
+import 'widgets/setup/setup_screen_flow.dart';
 import 'lang/my_localizations.dart';
 import 'lang/my_localizations_delegate.dart';
 
@@ -33,16 +34,18 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (ctx, userSnapshot) {
-          // Show splash screen while checking if user is signed in.
+          // Show loading screen while checking if user is signed in.
           if (userSnapshot.connectionState == ConnectionState.waiting) {
             return LoadingScreen();
           }
           var signedIn = userSnapshot.hasData;
-          return signedIn
-              ? OneTimeInformation(showAfter: TabScreen())
-              : AuthScreen();
+          return signedIn ? SetupScreenFlow() : AuthScreen();
         },
       ),
+      routes: {
+        AddCommunityScreen.routeName: (ctx) => AddCommunityScreen(),
+        InformationScreen.routeName: (ctx) => InformationScreen(),
+      },
     );
   }
 }
