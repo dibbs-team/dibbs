@@ -9,6 +9,7 @@ import 'screens/add_community_screen.dart';
 import 'screens/information_screen.dart';
 import 'widgets/setup/setup_screen_flow.dart';
 import 'lang/my_localizations.dart';
+import 'design/app_theme.dart';
 import 'lang/my_localizations_delegate.dart';
 
 void main() async {
@@ -18,6 +19,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final AppTheme appTheme = new AppTheme();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,6 +48,7 @@ class MyApp extends StatelessWidget {
         AddCommunityScreen.routeName: (ctx) => AddCommunityScreen(),
         InformationScreen.routeName: (ctx) => InformationScreen(),
       },
+      theme: appTheme.themedata,
     );
   }
 }
