@@ -14,9 +14,14 @@ class ProfileDrawer extends StatelessWidget {
     final l10n = MyLocalizations.of(context);
 
     return Drawer(
-      child: RaisedButton(
-        child: Text(l10n.signOut),
-        onPressed: this.callback,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RaisedButton(
+            child: Text(l10n.signOut),
+            onPressed: this.callback,
+          ),
+        ],
       ),
     );
   }

@@ -66,11 +66,7 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           const Divider(
-            color: Colors.blue,
             height: 20,
-            thickness: 2,
-            indent: 10,
-            endIndent: 10,
           ),
           Expanded(
             child: GridView.builder(
@@ -84,6 +80,9 @@ class ProfileScreen extends StatelessWidget {
                 );
               },
             ),
+          ),
+          const Divider(
+            height: 20,
           ),
         ],
       ),
