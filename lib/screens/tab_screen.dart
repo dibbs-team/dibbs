@@ -1,3 +1,5 @@
+import 'package:dibbs/screens/bookings_screen.dart';
+import 'package:dibbs/screens/notifications_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'feed_screen.dart';
@@ -13,14 +15,16 @@ class TabScreen extends StatefulWidget {
 
 class _TabScreenState extends State<TabScreen> {
   final _scaffoldKey = GlobalKey<ScaffoldState>(); //* For showing SnackBar.
-  static const _uploadAdScreenIndex = 1;
-  static const _profileScreenIndex = 2;
+  static const _uploadAdScreenIndex = 2;
+  static const _profileScreenIndex = 4;
   var _selectedIndex = 0;
 
   static final List<Widget> _tabs = <Widget>[
     //! Modifying this list requires you to update index variables.
     FeedScreen(),
+    NotificationsScreen(),
     null, //* Instead of UploadAdScreen.
+    BookingsScreen(),
     ProfileScreen(),
   ];
 
@@ -61,15 +65,23 @@ class _TabScreenState extends State<TabScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.view_day),
+            icon: Icon(Icons.explore_outlined),
             label: l10n.feedScreenTitle,
           ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.notifications_none),
+            label: l10n.notificationsScreenTitle,
+          ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: Icon(Icons.add_circle_outline),
             label: l10n.uploadScreenTitle,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.event),
+            label: l10n.bookingsScreenTitle,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
             label: l10n.profileScreenTitle,
           ),
         ],
