@@ -18,6 +18,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       endDrawer: ProfileDrawer(callback: signOut),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(l10n.profileScreenTitle),
         actions: [
           Builder(
