@@ -44,6 +44,16 @@ class MyLocalizations {
         name: 'feedScreenTitle',
         desc: 'Name of feed screen.',
       );
+  String get bookingsScreenTitle => Intl.message(
+        'Bookings',
+        name: 'bookingsScreenTitle',
+        desc: 'Name of bookings screen.',
+      );
+  String get notificationsScreenTitle => Intl.message(
+        'Notifications',
+        name: 'notificationsScreenTitle',
+        desc: 'Name of notifications screen.',
+      );
 
   String get uploadScreenTitle => Intl.message(
         'Upload ad',
