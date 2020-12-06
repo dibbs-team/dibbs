@@ -30,6 +30,7 @@ dependencies:
   auth_buttons: ^0.0.4
   smooth_page_indicator: ^0.2.0
   tap_debouncer: ^1.0.1
+  pinput: ^0.2.0
 
 dev_dependencies:
   flutter_test:

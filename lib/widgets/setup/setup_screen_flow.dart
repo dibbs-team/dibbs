@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 import '../../screens/tab_screen.dart';
 import '../../screens/add_community_screen.dart';
 import '../../screens/information_screen.dart';
+import '../../utils/firestore_values.dart';
 
 class SetupScreenFlow extends StatelessWidget {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  final showOnceIdentifier = 'seenInformationScreen';
+  final _showOnceIdentifier = 'seenInformationScreen';
+  final _firestore = FirebaseFirestore.instance;
+  final _user = auth.FirebaseAuth.instance.currentUser;
 
   /// Checks if the user is not part of any community.
   Future<bool> _getUserHasNoCommuniy() async {
-    //! Assume false for now.
-    return false;
+    final userSnapshot =
+        await _firestore.collection(Collection.users).doc(_user.uid).get();
+    var communities = userSnapshot.data()[Users.communities];
+    return communities?.isEmpty ?? true;
   }
 
   /// Checks if the user has never seen the information.
   Future<bool> _getUserNeverSeenInfo() async {
     final SharedPreferences prefs = await _prefs;
-    return !(prefs.getBool(showOnceIdentifier) ?? false);
+    return !(prefs.getBool(_showOnceIdentifier) ?? false);
   }
 
   /// Saves that the user has seen the information.
   Future<void> _setSeenInfoBefore() async {
     final SharedPreferences prefs = await _prefs;
-    await prefs.setBool(showOnceIdentifier, true);
+    await prefs.setBool(_showOnceIdentifier, true);
   }
 
   /// Pushes setup screens in order.

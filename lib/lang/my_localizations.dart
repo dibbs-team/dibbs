@@ -218,15 +218,23 @@ class MyLocalizations {
         desc: 'Hint for input field for adding a community code.',
       );
 
-  String get addCommunityFinished => Intl.message(
-        'Continue',
-        name: 'addCommunityFinished',
+  String continueToCommunity(String name) => Intl.message(
+        'Continue to $name',
+        name: 'continueToCommunity',
+        args: [name],
         desc: 'Text on button for finishing adding a community.',
+        examples: const {'name': 'Dibbs Team'},
       );
 
-  String get addCommunityDisclaimer => Intl.message(
-        'By creating an account you agree to our Terms of Service and Privacy Policy',
-        name: 'addCommunityDisclaimer',
-        desc: 'Text on screen when adding a community.',
+  String get noCommunityFound => Intl.message(
+        'Sorry, we can not find that community. Make sure you have the right code.',
+        name: 'noCommunityFound',
+        desc: 'Text on add community screen when no community was found.',
+      );
+
+  String get firebaseError => Intl.message(
+        'Something went wrong. Please check your internet connection',
+        name: 'firebaseError',
+        desc: 'Showed in a snackbar when a call to firebase gives an error.',
       );
 }
