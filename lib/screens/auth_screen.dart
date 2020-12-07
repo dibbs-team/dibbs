@@ -44,6 +44,7 @@ class _AuthScreenState extends State<AuthScreen> {
         Users.image: user.photoURL,
         Users.phone: user.phoneNumber,
       },
+      SetOptions(merge: true),
     );
   }
 
