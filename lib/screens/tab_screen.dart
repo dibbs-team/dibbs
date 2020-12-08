@@ -7,6 +7,7 @@ import 'upload_ad_screen.dart';
 import 'profile_screen.dart';
 import '../lang/my_localizations.dart';
 import '../utils/show_snackbar.dart';
+import '../design/my_attributes.dart';
 
 class TabScreen extends StatefulWidget {
   @override
@@ -62,33 +63,36 @@ class _TabScreenState extends State<TabScreen> {
     return Scaffold(
       key: _scaffoldKey,
       body: _tabs.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.explore_outlined),
-            label: l10n.feedScreenTitle,
-          ),
-           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_none),
-            label: l10n.notificationsScreenTitle,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle_outline),
-            label: l10n.uploadScreenTitle,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.event),
-            label: l10n.bookingsScreenTitle,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: l10n.profileScreenTitle,
-          ),
-        ],
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: MyAttributes.borderRadiusTop,
+        child: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore_outlined),
+              label: l10n.feedScreenTitle,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_none),
+              label: l10n.notificationsScreenTitle,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_circle_outline),
+              label: l10n.uploadScreenTitle,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.event),
+              label: l10n.bookingsScreenTitle,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle_outlined),
+              label: l10n.profileScreenTitle,
+            ),
+          ],
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }
