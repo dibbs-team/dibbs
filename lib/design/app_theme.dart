@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
 
 import 'my_colors.dart';
+import 'my_attributes.dart';
 
 class AppTheme {
-
-  final BorderRadius buttonBorderRadius = BorderRadius.circular(16.0);
-  final EdgeInsets mainButtonPadding = EdgeInsets.all(12.0);
-
   ThemeData get themedata {
     return ThemeData(
         backgroundColor: MyColors.white,
         buttonTheme: ButtonThemeData(
           buttonColor: MyColors.darkGreen,
-          padding: mainButtonPadding,
+          padding: MyAttributes.buttonPadding,
           height: 50,
           minWidth: 200,
           //* I strongly recommend that we continue using the primary attribute
-          //* since this will automatically detect the best color for the text. 
+          //* since this will automatically detect the best color for the text.
           //* (johanehinger)
           textTheme: ButtonTextTheme.primary,
           shape: RoundedRectangleBorder(
-            borderRadius: buttonBorderRadius,
+            borderRadius: MyAttributes.borderRadius,
             side: BorderSide(
               color: MyColors.darkGreen,
             ),
           ),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: MyColors.white,
+          backgroundColor: MyColors.teal,
           elevation: 0,
-          selectedItemColor: MyColors.darkGreen,
-          unselectedItemColor: MyColors.grey,
+          selectedItemColor: MyColors.white,
+          unselectedItemColor: MyColors.lightTeal,
           type: BottomNavigationBarType.fixed,
         ),
         dividerTheme: DividerThemeData(
