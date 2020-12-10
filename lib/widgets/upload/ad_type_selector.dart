@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../lang/my_localizations.dart';
 
 class AdTypeSelector extends StatelessWidget {
-  final void Function() onChooseFind;
-  final void Function() onChooseList;
+  final void Function() onSelectedFind;
+  final void Function() onSelectedList;
 
   AdTypeSelector({
-    this.onChooseFind,
-    this.onChooseList,
+    this.onSelectedFind,
+    this.onSelectedList,
   });
 
   @override
@@ -16,8 +16,8 @@ class AdTypeSelector extends StatelessWidget {
     final l10n = MyLocalizations.of(context);
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        const Spacer(flex: 2),
         Text(
           l10n.chooseUploadTypeHint,
           style: TextStyle(
@@ -32,7 +32,7 @@ class AdTypeSelector extends StatelessWidget {
             Expanded(
               flex: 3,
               child: RaisedButton(
-                onPressed: onChooseFind,
+                onPressed: onSelectedFind,
                 child: Text(l10n.uploadTypeFind.toUpperCase()),
               ),
             ),
@@ -40,13 +40,14 @@ class AdTypeSelector extends StatelessWidget {
             Expanded(
               flex: 3,
               child: RaisedButton(
-                onPressed: onChooseList,
+                onPressed: onSelectedList,
                 child: Text(l10n.uploadTypeList.toUpperCase()),
               ),
             ),
             const Spacer(flex: 1),
           ],
         ),
+        const Spacer(flex: 3),
       ],
     );
   }

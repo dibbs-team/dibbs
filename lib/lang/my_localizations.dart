@@ -79,6 +79,12 @@ class MyLocalizations {
         desc: 'Description title',
       );
 
+  String get formTitle => Intl.message(
+        'Title',
+        name: 'formTitle',
+        desc: 'Title when used in forms.',
+      );
+
   String signInButtonText(String service) => Intl.message(
         'Sign in with $service',
         name: 'signInButtonText',
@@ -138,38 +144,6 @@ class MyLocalizations {
         args: [current, total],
         desc: 'AppBar text on when uploading ad.',
         examples: const {'current': 2, 'total': 4},
-      );
-
-  String picturesStepTitle(int step) => Intl.message(
-        '$step. Upload pictures',
-        name: 'picturesStepTitle',
-        args: [step],
-        desc: 'Title on pictures step when uploading ad.',
-        examples: const {'step': 1},
-      );
-
-  String descriptionStepTitle(int step) => Intl.message(
-        '$step. Describe your item',
-        name: 'descriptionStepTitle',
-        args: [step],
-        desc: 'Title on description step when uploading ad.',
-        examples: const {'step': 2},
-      );
-
-  String rulesStepTitle(int step) => Intl.message(
-        '$step. Set your rules',
-        name: 'rulesStepTitle',
-        args: [step],
-        desc: 'Title on rules step when uploading ad.',
-        examples: const {'step': 3},
-      );
-
-  String paymentStepTitle(int step) => Intl.message(
-        '$step. Set up payment',
-        name: 'paymentStepTitle',
-        args: [step],
-        desc: 'Title on payment step when uploading ad.',
-        examples: const {'step': 4},
       );
 
   String get signOut => Intl.message(
@@ -246,5 +220,52 @@ class MyLocalizations {
         'Something went wrong. Please check your internet connection',
         name: 'firebaseError',
         desc: 'Showed in a snackbar when a call to firebase gives an error.',
+      );
+
+  String get findAdDescriptionTitle => Intl.message(
+        'Describe what you are looking for',
+        name: 'findAdDescriptionTitle',
+        desc: 'Title on description input when uploading a find ad.',
+      );
+
+  String get findAdPriceTitle => Intl.message(
+        'Maximum price',
+        name: 'findAdPriceTitle',
+        desc: 'Title on price input when uploading a find ad.',
+      );
+
+  String get findAdDateTitle => Intl.message(
+        'Dates',
+        name: 'findAdDateTitle',
+        desc: 'Title on dates input when uploading a find ad.',
+      );
+
+  String get findAdTermsTitle => Intl.message(
+        'Accept terms and conditions',
+        name: 'findAdTermsTitle',
+        desc: 'Title for accepting terms when uploading a find ad.',
+      );
+
+  String get findAdTermsPhone => Intl.message(
+        'Add contact number',
+        name: 'findAdTermsPhone',
+        desc: 'Title on phone input when uploading a find ad.',
+      );
+  String get longTemp => Intl.message(
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
+        'eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad'
+        ' minim veniam, quis nostrud exercitation ullamco laboris nisi ut '
+        'aliquip ex ea commodo consequat. Duis aute irure dolor in '
+        'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla'
+        ' pariatur. Excepteur sint occaecat cupidatat non proident, sunt in '
+        'culpa qui officia deserunt mollit anim id est laborum.',
+        name: 'longTemp',
+        desc: 'Longer temporary text.',
+      );
+
+  String get datePickerHelp => Intl.message(
+        'Select the dates you are interested in',
+        name: 'datePickerHelp',
+        desc: 'Instrucitons date picker.',
       );
 }
