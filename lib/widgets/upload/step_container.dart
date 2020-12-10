@@ -3,13 +3,13 @@ import 'package:tap_debouncer/tap_debouncer.dart';
 
 import '../../lang/my_localizations.dart';
 
-class UploadStepContainer extends StatelessWidget {
+class StepContainer extends StatelessWidget {
   final int step;
   final int totalSteps;
   final Future<void> Function() onButtonPressed;
   final Widget child;
 
-  const UploadStepContainer({
+  const StepContainer({
     @required this.step,
     @required this.totalSteps,
     @required this.onButtonPressed,
