@@ -31,6 +31,11 @@ dependencies:
   smooth_page_indicator: ^0.2.0
   tap_debouncer: ^1.0.1
   pinput: ^0.2.0
+  enum_to_string: ^1.0.14
+  equatable: ^1.2.5
+
+  # Testing
+  cloud_firestore_mocks: ^0.5.2+1
 
 dev_dependencies:
   flutter_test:

@@ -1,0 +1,4 @@
+enum AdType {
+  FIND,
+  LIST,
+}
