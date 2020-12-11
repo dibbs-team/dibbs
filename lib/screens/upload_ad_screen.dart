@@ -4,8 +4,10 @@ import '../lang/my_localizations.dart';
 import '../widgets/upload/step_container.dart';
 import '../widgets/upload/ad_type_selector.dart';
 import '../widgets/upload/find_ad_details_fom.dart';
-import '../widgets/upload/find_ad_uploader_form.dart';
+import '../widgets/upload/ad_uploader_form.dart';
 import '../widgets/upload/list_ad_images_form.dart';
+import '../widgets/upload/list_ad_details_form.dart';
+import '../widgets/upload/list_ad_payment_form.dart';
 import '../widgets/upload/upload_step.dart';
 
 class UploadAdScreen extends StatefulWidget {
@@ -25,7 +27,7 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
       // Init find ad steps.
       _steps = [
         FindAdDetailsForm(),
-        FindAdUploaderForm(),
+        AdUploaderForm(),
       ];
       _currentIndex += 1; // Navigates to next step.
     });
@@ -36,6 +38,9 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
       // Init list ad steps.
       _steps = [
         ListAdImagesForm(),
+        ListAdDetailsForm(),
+        AdUploaderForm(),
+        ListAdPaymentForm(),
       ];
       _currentIndex += 1; // Navigates to next step.
     });

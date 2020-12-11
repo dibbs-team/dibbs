@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'ad_form_title.dart';
 import 'ad_form_text_field.dart';
 import 'ad_form_number_field.dart';
-import 'ad_form_date_picker.dart';
 import 'upload_step.dart';
 import '../../lang/my_localizations.dart';
 
-class FindAdDetailsForm extends UploadStep {
+class ListAdDetailsForm extends UploadStep {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -28,13 +27,11 @@ class FindAdDetailsForm extends UploadStep {
             AdFormTextField(hint: l10n.formTitle),
             AdFormTextField(
               hint: l10n.description,
-              lines: 8,
+              lines: 12,
               optional: true,
             ),
-            AdFormTitle(l10n.findAdPriceTitle),
+            AdFormTitle(l10n.listAdPriceTitle),
             AdFormNumberField(),
-            AdFormTitle(l10n.findAdDateTitle),
-            DateRangePicker(),
           ],
         ),
       ),

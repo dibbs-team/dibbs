@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'ad_form_title.dart';
+import 'ad_form_phone_field.dart';
 import 'upload_step.dart';
 import '../../lang/my_localizations.dart';
 
-class ListAdImagesForm extends UploadStep {
+class AdUploaderForm extends UploadStep {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -18,10 +19,15 @@ class ListAdImagesForm extends UploadStep {
 
     return Form(
       key: _formKey,
-      child: Column(
-        children: [
-          AdFormTitle(l10n.listAdImagesTitle),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            AdFormTitle(l10n.findAdTermsTitle),
+            Text(l10n.longTemp),
+            AdFormTitle(l10n.findAdTermsPhone),
+            AdFormPhoneField(),
+          ],
+        ),
       ),
     );
   }

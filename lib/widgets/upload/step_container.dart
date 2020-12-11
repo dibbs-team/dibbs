@@ -20,25 +20,20 @@ class StepContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = MyLocalizations.of(context);
 
-    return Stack(
-      children: <Widget>[
-        child,
-        Positioned(
-          child: Align(
-            alignment: FractionalOffset.bottomCenter,
-            child: Container(
-              width: double.infinity,
-              child: TapDebouncer(
-                onTap: () async {
-                  await onButtonPressed();
-                },
-                builder: (ctx, onTap) => RaisedButton(
-                  child: Text(
-                    step == totalSteps ? l10n.uploadAd : l10n.nextStep,
-                  ),
-                  onPressed: onTap,
-                ),
+    return Column(
+      children: [
+        Expanded(child: child),
+        Container(
+          width: double.infinity,
+          child: TapDebouncer(
+            onTap: () async {
+              await onButtonPressed();
+            },
+            builder: (ctx, onTap) => RaisedButton(
+              child: Text(
+                step == totalSteps ? l10n.uploadAd : l10n.nextStep,
               ),
+              onPressed: onTap,
             ),
           ),
         )

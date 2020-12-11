@@ -222,7 +222,7 @@ class MyLocalizations {
         desc: 'Showed in a snackbar when a call to firebase gives an error.',
       );
 
-  String get findAdDescriptionTitle => Intl.message(
+  String get adDescriptionTitle => Intl.message(
         'Describe what you are looking for',
         name: 'findAdDescriptionTitle',
         desc: 'Title on description input when uploading a find ad.',
@@ -267,5 +267,23 @@ class MyLocalizations {
         'Select the dates you are interested in',
         name: 'datePickerHelp',
         desc: 'Instrucitons date picker.',
+      );
+
+  String get listAdImagesTitle => Intl.message(
+        'Uplaod images',
+        name: 'listAdImagesTitle',
+        desc: 'Title for uploading images when creating a list ad.',
+      );
+
+  String get listAdPriceTitle => Intl.message(
+        'Price per day',
+        name: 'listAdPriceTitle',
+        desc: 'Title on price input when uploading a list ad.',
+      );
+
+  String get listAdPaymentTitle => Intl.message(
+        'Set up payment',
+        name: 'listAdPaymentTitle',
+        desc: 'Title on payment input when uploading a list ad.',
       );
 }
