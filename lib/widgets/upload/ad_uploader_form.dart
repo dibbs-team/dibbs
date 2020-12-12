@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'ad_form_title.dart';
-import 'ad_form_phone_field.dart';
+import 'form_title.dart';
+import 'form_input_field.dart';
 import 'upload_step.dart';
 import '../../lang/my_localizations.dart';
 
@@ -22,10 +22,10 @@ class AdUploaderForm extends UploadStep {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            AdFormTitle(l10n.findAdTermsTitle),
+            FormTitle(l10n.findAdTermsTitle),
             Text(l10n.longTemp),
-            AdFormTitle(l10n.findAdTermsPhone),
-            AdFormPhoneField(),
+            FormTitle(l10n.adInputPhone),
+            FormInputField.phone(),
           ],
         ),
       ),

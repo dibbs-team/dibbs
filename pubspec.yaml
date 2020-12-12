@@ -34,6 +34,9 @@ dependencies:
   enum_to_string: ^1.0.14
   equatable: ^1.2.5
 
+  # Debugging
+  logger: ^0.9.4
+
   # Testing
   cloud_firestore_mocks: ^0.5.2+1
 

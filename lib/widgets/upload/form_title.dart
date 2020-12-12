@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class AdFormTitle extends StatelessWidget {
+class FormTitle extends StatelessWidget {
   final String title;
 
-  AdFormTitle(this.title);
+  FormTitle(this.title);
 
   @override
   Widget build(BuildContext context) {

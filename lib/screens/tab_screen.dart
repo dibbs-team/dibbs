@@ -44,7 +44,7 @@ class _TabScreenState extends State<TabScreen> {
             _selectedIndex = _profileScreenIndex; // Move to profile screen.
           });
         } else {
-          // Something went wrong while uploading the product.
+          // Something went wrong while uploading the ad.
           final l10n = MyLocalizations.of(context);
           showSnackbar(key: _scaffoldKey, message: l10n.errorOccured);
         }

@@ -119,7 +119,7 @@ class MyLocalizations {
   String get nextStep => Intl.message(
         'Next',
         name: 'nextStep',
-        desc: 'Text on button to go to next step when uploading a ad.',
+        desc: 'Text on button to go to next step when uploading an ad.',
       );
 
   String get uploadAd => Intl.message(
@@ -222,7 +222,7 @@ class MyLocalizations {
         desc: 'Showed in a snackbar when a call to firebase gives an error.',
       );
 
-  String get adDescriptionTitle => Intl.message(
+  String get findAdDescriptionTitle => Intl.message(
         'Describe what you are looking for',
         name: 'findAdDescriptionTitle',
         desc: 'Title on description input when uploading a find ad.',
@@ -246,10 +246,10 @@ class MyLocalizations {
         desc: 'Title for accepting terms when uploading a find ad.',
       );
 
-  String get findAdTermsPhone => Intl.message(
+  String get adInputPhone => Intl.message(
         'Add contact number',
-        name: 'findAdTermsPhone',
-        desc: 'Title on phone input when uploading a find ad.',
+        name: 'adInputPhone',
+        desc: 'Title on phone input when uploading an ad.',
       );
   String get longTemp => Intl.message(
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
@@ -273,6 +273,12 @@ class MyLocalizations {
         'Uplaod images',
         name: 'listAdImagesTitle',
         desc: 'Title for uploading images when creating a list ad.',
+      );
+
+  String get listAdDescriptionTitle => Intl.message(
+        'Describe your item',
+        name: 'listAdDescriptionTitle',
+        desc: 'Title on description input when uploading a find ad.',
       );
 
   String get listAdPriceTitle => Intl.message(
