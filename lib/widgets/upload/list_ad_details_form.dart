@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 
-import 'ad_form_title.dart';
-import 'ad_form_text_field.dart';
-import 'ad_form_number_field.dart';
+import 'form_title.dart';
+import 'form_input_field.dart';
 import 'upload_step.dart';
 import '../../lang/my_localizations.dart';
 
 class ListAdDetailsForm extends UploadStep {
   final _formKey = GlobalKey<FormState>();
+
+  // Handles to forms.
+  final _titleField = FormInputField.title();
+  final _descriptionField = FormInputField.description();
+  final _priceField = FormInputField.price();
+
+  String get title => _titleField.value;
+  String get description => _descriptionField.value;
+  int get price => int.parse(_priceField.value);
 
   @override
   bool validate() {
@@ -23,15 +31,11 @@ class ListAdDetailsForm extends UploadStep {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            AdFormTitle(l10n.adDescriptionTitle),
-            AdFormTextField(hint: l10n.formTitle),
-            AdFormTextField(
-              hint: l10n.description,
-              lines: 12,
-              optional: true,
-            ),
-            AdFormTitle(l10n.listAdPriceTitle),
-            AdFormNumberField(),
+            FormTitle(l10n.listAdDescriptionTitle),
+            _titleField,
+            _descriptionField,
+            FormTitle(l10n.listAdPriceTitle),
+            _priceField,
           ],
         ),
       ),

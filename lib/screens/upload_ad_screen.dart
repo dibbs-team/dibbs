@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
+import '../models/ad.dart';
 import '../lang/my_localizations.dart';
 import '../widgets/upload/step_container.dart';
 import '../widgets/upload/ad_type_selector.dart';
@@ -9,6 +12,8 @@ import '../widgets/upload/list_ad_images_form.dart';
 import '../widgets/upload/list_ad_details_form.dart';
 import '../widgets/upload/list_ad_payment_form.dart';
 import '../widgets/upload/upload_step.dart';
+import '../utils/firestore_values.dart';
+import '../utils/ad_types.dart';
 
 class UploadAdScreen extends StatefulWidget {
   @override
@@ -18,6 +23,14 @@ class UploadAdScreen extends StatefulWidget {
 class _UploadAdScreenState extends State<UploadAdScreen> {
   var _currentIndex = 0;
   List<UploadStep> _steps = [];
+  AdType type;
+
+  // Handles to forms.
+  AdUploaderForm adUploaderForm;
+  FindAdDetailsForm findAdDetailsForm;
+  ListAdImagesForm listAdImagesForm;
+  ListAdDetailsForm listAdDetailsForm;
+  ListAdPaymentForm listAdPaymentForm;
 
   UploadStep get _currentStep =>
       _currentIndex > 0 ? _steps[_currentIndex - 1] : null;
@@ -25,37 +38,83 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
   void _initFindMode() {
     setState(() {
       // Init find ad steps.
+      findAdDetailsForm = FindAdDetailsForm();
+      adUploaderForm = AdUploaderForm();
       _steps = [
-        FindAdDetailsForm(),
-        AdUploaderForm(),
+        findAdDetailsForm,
+        adUploaderForm,
       ];
       _currentIndex += 1; // Navigates to next step.
+      type = AdType.FIND;
     });
   }
 
   void _initListMode() {
     setState(() {
       // Init list ad steps.
+      listAdImagesForm = ListAdImagesForm();
+      listAdDetailsForm = ListAdDetailsForm();
+      adUploaderForm = AdUploaderForm();
+      listAdPaymentForm = ListAdPaymentForm();
       _steps = [
-        ListAdImagesForm(),
-        ListAdDetailsForm(),
-        AdUploaderForm(),
-        ListAdPaymentForm(),
+        listAdImagesForm,
+        listAdDetailsForm,
+        adUploaderForm,
+        listAdPaymentForm,
       ];
       _currentIndex += 1; // Navigates to next step.
+      type = AdType.LIST;
     });
   }
 
   /// If steps left navigates to the next step, else uploads ad.
   Future<void> _finishStep() async {
     if (_currentIndex == _steps.length) {
-      var res = true; //! Result from upload. Assume true for now.
+      var res = _uploadAd();
       //* Communicates result of upload to parent screen.
       Navigator.of(context).pop(res);
     } else {
       setState(() {
         _currentIndex += 1; // Navigates to next step.
       });
+    }
+  }
+
+  /// Uploads an ad to Firestore.
+  Future<bool> _uploadAd() async {
+    // Get information about uploader.
+    final user = auth.FirebaseAuth.instance.currentUser;
+    final uploader = Uploader(
+      id: user.uid,
+      name: user.displayName,
+      image: user.photoURL,
+    );
+
+    // Create ad.
+    var ad = type == AdType.FIND
+        ? FindAd(
+            title: findAdDetailsForm.title,
+            description: findAdDetailsForm.description,
+            price: findAdDetailsForm.price,
+            uploader: uploader,
+            dates: findAdDetailsForm.dates,
+          )
+        : ListAd(
+            title: listAdDetailsForm.title,
+            description: listAdDetailsForm.description,
+            price: listAdDetailsForm.price,
+            images: [],
+            uploader: uploader,
+          );
+
+    // Upload ad.
+    try {
+      await FirebaseFirestore.instance
+          .collection(Collection.ads)
+          .add(ad.toFirestoreObject());
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 

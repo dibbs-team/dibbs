@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 
-import 'ad_form_title.dart';
-import 'ad_form_text_field.dart';
-import 'ad_form_number_field.dart';
-import 'ad_form_date_picker.dart';
+import 'form_title.dart';
+import 'form_input_field.dart';
+import 'date_range_picker.dart';
 import 'upload_step.dart';
 import '../../lang/my_localizations.dart';
 
 class FindAdDetailsForm extends UploadStep {
   final _formKey = GlobalKey<FormState>();
+
+  // Handles to input fields.
+  final _titleField = FormInputField.title();
+  final _descriptionField = FormInputField.description();
+  final _priceField = FormInputField.price();
+  final _dateRangePicker = DateRangePicker();
+
+  String get title => _titleField.value;
+  String get description => _descriptionField.value;
+  int get price => int.parse(_priceField.value);
+  DateTimeRange get dates => _dateRangePicker.dates;
 
   @override
   bool validate() {
@@ -24,17 +34,13 @@ class FindAdDetailsForm extends UploadStep {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            AdFormTitle(l10n.adDescriptionTitle),
-            AdFormTextField(hint: l10n.formTitle),
-            AdFormTextField(
-              hint: l10n.description,
-              lines: 8,
-              optional: true,
-            ),
-            AdFormTitle(l10n.findAdPriceTitle),
-            AdFormNumberField(),
-            AdFormTitle(l10n.findAdDateTitle),
-            DateRangePicker(),
+            FormTitle(l10n.findAdDescriptionTitle),
+            _titleField,
+            _descriptionField,
+            FormTitle(l10n.findAdPriceTitle),
+            _priceField,
+            FormTitle(l10n.findAdDateTitle),
+            _dateRangePicker,
           ],
         ),
       ),

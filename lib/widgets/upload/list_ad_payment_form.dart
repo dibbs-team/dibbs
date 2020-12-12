@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ad_form_title.dart';
+import 'form_title.dart';
 import 'upload_step.dart';
 import '../../lang/my_localizations.dart';
 
@@ -21,7 +21,7 @@ class ListAdPaymentForm extends UploadStep {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            AdFormTitle(l10n.listAdPaymentTitle),
+            FormTitle(l10n.listAdPaymentTitle),
           ],
         ),
       ),
