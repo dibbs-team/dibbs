@@ -48,15 +48,24 @@ class SetupScreenFlow extends StatelessWidget {
     //* Source: https://stackoverflow.com/questions/55618717/error-thrown-on-navigator-pop-until-debuglocked-is-not-true
     await null; //! Do not remove this.
 
+    bool pushedScreen = false;
+
     // Push screen for adding community if the user is not part of one.
     if (await _getUserHasNoCommuniy()) {
       await Navigator.of(ctx).pushNamed(AddCommunityScreen.routeName);
+      pushedScreen = true;
     }
 
     // Push information screen if the user has not seen it before.
     if (await _getUserNeverSeenInfo()) {
       await Navigator.of(ctx).pushNamed(InformationScreen.routeName);
       _setSeenInfoBefore();
+      pushedScreen = true;
+    }
+
+    if (pushedScreen) {
+      // Wait for pop animation to finish.
+      await Future.delayed(Duration(milliseconds: 500));
     }
   }
 
