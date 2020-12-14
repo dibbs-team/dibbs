@@ -19,7 +19,6 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final AppTheme appTheme = new AppTheme();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,14 +40,17 @@ class MyApp extends StatelessWidget {
             return LoadingScreen();
           }
           var signedIn = userSnapshot.hasData;
-          return signedIn ? SetupScreenFlow() : AuthScreen();
+          return AnimatedSwitcher(
+            duration: Duration(seconds: 1),
+            child: signedIn ? SetupScreenFlow() : AuthScreen(),
+          );
         },
       ),
       routes: {
         AddCommunityScreen.routeName: (ctx) => AddCommunityScreen(),
         InformationScreen.routeName: (ctx) => InformationScreen(),
       },
-      theme: appTheme.themedata,
+      theme: AppTheme().themedata,
     );
   }
 }

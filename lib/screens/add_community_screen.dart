@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 import '../lang/my_localizations.dart';
-import '../widgets/add_community/continue_button.dart';
-import '../widgets/add_community/code_input.dart';
+import '../widgets/setup/continue_button.dart';
+import '../widgets/setup/code_input.dart';
 import '../utils/firestore_values.dart';
 import '../utils/show_snackbar.dart';
 
