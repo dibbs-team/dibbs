@@ -6,9 +6,11 @@ import 'my_attributes.dart';
 class AppTheme {
   ThemeData get themedata {
     return ThemeData(
+        primaryColor: MyColors.teal,
+        accentColor: MyColors.orange,
         backgroundColor: MyColors.white,
         buttonTheme: ButtonThemeData(
-          buttonColor: MyColors.darkGreen,
+          buttonColor: MyColors.teal,
           padding: MyAttributes.buttonPadding,
           height: 50,
           minWidth: 200,
@@ -19,7 +21,7 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: MyAttributes.borderRadius,
             side: BorderSide(
-              color: MyColors.darkGreen,
+              color: MyColors.teal,
             ),
           ),
         ),
@@ -31,7 +33,7 @@ class AppTheme {
           type: BottomNavigationBarType.fixed,
         ),
         dividerTheme: DividerThemeData(
-          color: MyColors.darkGreen,
+          color: MyColors.teal,
           thickness: 2,
           indent: 10,
           endIndent: 10,
@@ -54,7 +56,16 @@ class AppTheme {
           ),
         ),
         textTheme: TextTheme(
-          caption: TextStyle(color: MyColors.black, fontSize: 16.0),
+          caption: TextStyle(
+            color: MyColors.black,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+          ),
+          headline6: TextStyle(
+            fontSize: 12.0,
+            fontWeight: FontWeight.bold,
+            color: MyColors.black,
+          ),
         ),
         scaffoldBackgroundColor: MyColors.white);
   }
