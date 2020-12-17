@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../design/my_attributes.dart';
+import '../../design/app_theme.dart';
 
 class AdItem extends StatelessWidget {
   @override
@@ -21,8 +22,14 @@ class AdItem extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("Title"),
-                  Text("Community"),
+                  Text(
+                    "Title",
+                    style: AppTheme().themedata.textTheme.caption,
+                  ),
+                  Text(
+                    "Community",
+                    style: AppTheme().themedata.textTheme.headline6,
+                  ),
                 ],
               ),
             )
