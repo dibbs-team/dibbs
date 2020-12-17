@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   google_sign_in: ^4.5.6
   shared_preferences: ^0.5.12+4
+  image_picker: ^0.6.7+15
 
   # Dart
   intl: ^0.16.1
@@ -33,6 +34,7 @@ dependencies:
   pinput: ^0.2.0
   enum_to_string: ^1.0.14
   equatable: ^1.2.5
+  reorderables: ^0.3.2
 
   # Debugging
   logger: ^0.9.4
