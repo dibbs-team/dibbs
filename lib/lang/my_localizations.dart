@@ -292,4 +292,16 @@ class MyLocalizations {
         name: 'listAdPaymentTitle',
         desc: 'Title on payment input when uploading a list ad.',
       );
+
+  String get camera => Intl.message(
+        'Camera',
+        name: 'camera',
+        desc: 'Button text for uploading an image using the camera.',
+      );
+
+  String get gallery => Intl.message(
+        'Gallery',
+        name: 'gallery',
+        desc: 'Button text for uploading an image from the gallery.',
+      );
 }
