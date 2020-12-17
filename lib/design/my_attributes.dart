@@ -6,4 +6,5 @@ class MyAttributes {
   static const BorderRadius borderRadiusTop =
       BorderRadius.vertical(top: radius);
   static const EdgeInsets buttonPadding = EdgeInsets.all(12.0);
+  static const double imageAspectRatio = 3 / 4;
 }
