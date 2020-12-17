@@ -53,6 +53,9 @@ class AppTheme {
             ),
           ),
         ),
+        textTheme: TextTheme(
+          caption: TextStyle(color: MyColors.black, fontSize: 16.0),
+        ),
         scaffoldBackgroundColor: MyColors.white);
   }
 }
