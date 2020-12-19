@@ -35,6 +35,7 @@ dependencies:
   enum_to_string: ^1.0.14
   equatable: ^1.2.5
   reorderables: ^0.3.2
+  paginate_firestore: ^0.2.2
 
   # Debugging
   logger: ^0.9.4
@@ -48,3 +49,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/ad-placeholder.png

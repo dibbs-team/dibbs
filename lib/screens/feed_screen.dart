@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:paginate_firestore/paginate_firestore.dart';
 
 import '../lang/my_localizations.dart';
 import '../design/my_attributes.dart';
 import '../widgets/explore/ad_item.dart';
+import '../widgets/explore/no_ads_display.dart';
+import '../models/ad.dart';
+import '../utils/firestore_values.dart';
 
 class FeedScreen extends StatefulWidget {
   @override
@@ -10,24 +15,43 @@ class FeedScreen extends StatefulWidget {
 }
 
 class _FeedScreenState extends State<FeedScreen> {
+  DateTime _lastRefresh = DateTime.now();
+
+  Future<void> _reloadAds() async {
+    setState(() {
+      //* This causes the key parameter in PaginateFirestore to change
+      //* which rebuilds the entire widget with reloaded content.
+      _lastRefresh = DateTime.now();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = MyLocalizations.of(context);
+    const spacing = 24.0;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.feedScreenTitle),
       ),
-      body: Container(
-        margin: EdgeInsets.all(5.0),
-        child: GridView.builder(
-          itemCount: 6,
-          itemBuilder: (BuildContext context, int index) => AdItem(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: MyAttributes.imageAspectRatio * 6 / 7,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
+      body: RefreshIndicator(
+        onRefresh: _reloadAds,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: spacing),
+          child: PaginateFirestore(
+            itemBuilderType: PaginateBuilderType.gridView,
+            itemBuilder: (index, ctx, documentSnapshot) =>
+                AdItem(Ad.fromFirestoreObject(documentSnapshot)),
+            query: FirebaseFirestore.instance.collection(Collection.ads),
+            emptyDisplay: NoAdsDisplay(),
+            itemsPerPage: 10,
+            key: Key(_lastRefresh.toString()),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: MyAttributes.imageAspectRatio * 0.85,
+              crossAxisSpacing: spacing,
+              mainAxisSpacing: spacing,
+            ),
           ),
         ),
       ),

@@ -304,4 +304,24 @@ class MyLocalizations {
         name: 'gallery',
         desc: 'Button text for uploading an image from the gallery.',
       );
+
+  String get noAds => Intl.message(
+        'Sorry, we could not find any ads',
+        name: 'noAds',
+        desc: 'Text shown when there are no ads in the feed screen.',
+      );
+
+  String get dibbItem => Intl.message(
+        'Dibb this item',
+        name: 'dibbItem',
+        desc: 'Text shown on button for renting an item.',
+      );
+
+  String adPrice(int price) => Intl.message(
+        '$price SEK/day',
+        name: 'adPrice',
+        args: [price],
+        desc: 'Price in ad detail.',
+        examples: const {'price': 99},
+      );
 }

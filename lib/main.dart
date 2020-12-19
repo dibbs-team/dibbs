@@ -8,6 +8,7 @@ import 'screens/auth_screen.dart';
 import 'screens/loading_screen.dart';
 import 'screens/add_community_screen.dart';
 import 'screens/information_screen.dart';
+import 'screens/ad_detail_screen.dart';
 import 'widgets/setup/setup_screen_flow.dart';
 import 'lang/my_localizations.dart';
 import 'design/app_theme.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AddCommunityScreen.routeName: (ctx) => AddCommunityScreen(),
         InformationScreen.routeName: (ctx) => InformationScreen(),
+        AdDetailScreen.routeName: (ctx) => AdDetailScreen(),
       },
       theme: AppTheme().themedata,
     );
