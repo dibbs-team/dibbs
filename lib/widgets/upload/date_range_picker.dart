@@ -11,8 +11,8 @@ class DateRangePicker extends StatelessWidget {
   //* dates if the state is disposed before the getter is called.
   DateTimeRange _datesWhenDisposed;
 
-  //* If the state has not been disposed we get the selected dates directly
-  //* from otherwise we return the dates that were selected at disposal.
+  //* If the state has not been disposed we get the selected dates directly from
+  //* the state otherwise we return the dates that were selected at disposal.
   DateTimeRange get dates =>
       _key.currentState?.selectedDates ?? _datesWhenDisposed;
 
@@ -31,7 +31,7 @@ class _DateRangePickerImpl extends StatefulWidget {
   final void Function(DateTimeRange) saveDatesOnDispose;
 
   _DateRangePickerImpl({
-    this.saveDatesOnDispose,
+    @required this.saveDatesOnDispose,
     @required key,
   }) : super(key: key);
 
@@ -65,9 +65,12 @@ class _DateRangePickerImplState extends State<_DateRangePickerImpl> {
         );
       },
     );
-    setState(() {
-      selectedDates = range;
-    });
+    //* Range can be null if the user cancels.
+    if (range != null) {
+      setState(() {
+        selectedDates = range;
+      });
+    }
   }
 
   @override
