@@ -4,6 +4,10 @@ class Collection {
   static const ads = 'ads';
 }
 
+class Storage {
+  static const adImages = 'ad_images';
+}
+
 class Communities {
   static const name = 'name';
 }

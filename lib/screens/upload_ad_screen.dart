@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:logger/logger.dart';
 
 import '../models/ad.dart';
 import '../lang/my_localizations.dart';
@@ -21,6 +25,8 @@ class UploadAdScreen extends StatefulWidget {
 }
 
 class _UploadAdScreenState extends State<UploadAdScreen> {
+  final _firestore = FirebaseFirestore.instance;
+  final _storage = firebase_storage.FirebaseStorage.instance;
   var _currentIndex = 0;
   List<UploadStep> _steps = [];
   AdType type;
@@ -70,7 +76,7 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
   /// If steps left navigates to the next step, else uploads ad.
   Future<void> _finishStep() async {
     if (_currentIndex == _steps.length) {
-      var res = _uploadAd();
+      var res = await _uploadAd();
       //* Communicates result of upload to parent screen.
       Navigator.of(context).pop(res);
     } else {
@@ -80,7 +86,34 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
     }
   }
 
-  /// Uploads an ad to Firestore.
+  // Uploads images to Firebase and returns corresponding URL references.
+  Future<List<String>> _uploadImages({
+    @required List<File> images,
+    @required String adId,
+  }) async {
+    // Get reference to directory to save images in.
+    final imageDirectoryRef =
+        _storage.ref().child(Storage.adImages).child(adId);
+
+    // Create a list that will be filled by image URLs.
+    var res = List<String>.filled(images.length, '', growable: false);
+
+    // Start to upload all images.
+    var futures = <Future>[];
+    for (var i = 0; i < images.length; ++i) {
+      final imageRef = imageDirectoryRef.child('$i.jpeg');
+      futures.add(imageRef
+          .putFile(images[i])
+          .then((_) => imageRef.getDownloadURL().then((url) => res[i] = url)));
+    }
+
+    //  Wait until a URL has been recieved for each image.
+    await Future.wait(futures);
+
+    return res;
+  }
+
+  /// Uploads an ad to Firestore. Returns whether upload was succesful.
   Future<bool> _uploadAd() async {
     // Get information about uploader.
     final user = auth.FirebaseAuth.instance.currentUser;
@@ -90,30 +123,54 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
       image: user.photoURL,
     );
 
-    // Create ad.
-    var ad = type == AdType.FIND
-        ? FindAd(
-            title: findAdDetailsForm.title,
-            description: findAdDetailsForm.description,
-            price: findAdDetailsForm.price,
-            uploader: uploader,
-            dates: findAdDetailsForm.dates,
-          )
-        : ListAd(
-            title: listAdDetailsForm.title,
-            description: listAdDetailsForm.description,
-            price: listAdDetailsForm.price,
-            images: [],
-            uploader: uploader,
-          );
+    if (type == AdType.FIND) {
+      try {
+        // Upload ad.
+        await _firestore.collection(Collection.ads).add(FindAd(
+              title: findAdDetailsForm.title,
+              description: findAdDetailsForm.description,
+              price: findAdDetailsForm.price,
+              uploader: uploader,
+              dates: findAdDetailsForm.dates,
+            ).toFirestoreObject());
+        return true;
+      } catch (e) {
+        return false;
+      }
+    } else if (type == AdType.LIST) {
+      DocumentReference adRef;
+      try {
+        // Create an ad to get a reference to a document.
+        adRef = await _firestore.collection(Collection.ads).add({});
 
-    // Upload ad.
-    try {
-      await FirebaseFirestore.instance
-          .collection(Collection.ads)
-          .add(ad.toFirestoreObject());
-      return true;
-    } catch (e) {
+        // Upload images to Firebase Storage.
+        final images = await _uploadImages(
+          images: listAdImagesForm.images,
+          adId: adRef.id,
+        );
+
+        // Upload ad.
+        await _firestore.collection(Collection.ads).add(ListAd(
+              title: listAdDetailsForm.title,
+              description: listAdDetailsForm.description,
+              price: listAdDetailsForm.price,
+              images: images,
+              uploader: uploader,
+            ).toFirestoreObject());
+
+        return true;
+      } catch (e) {
+        // Clean up any already made writes.
+        if (adRef != null) {
+          adRef.delete();
+          _storage.ref().child(Storage.adImages).child(adRef.id).listAll().then(
+              (result) => result.items.forEach((image) => image.delete()));
+        }
+
+        return false;
+      }
+    } else {
+      Logger().w('Ad to be uploaded had unknown type.');
       return false;
     }
   }
