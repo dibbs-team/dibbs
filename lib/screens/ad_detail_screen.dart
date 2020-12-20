@@ -4,6 +4,7 @@ import '../models/ad.dart';
 import '../design/my_attributes.dart';
 import '../lang/my_localizations.dart';
 import '../widgets/ad_detail/uploader_info.dart';
+import '../widgets/ad_detail/image_carousel.dart';
 
 class AdDetailScreen extends StatelessWidget {
   static const routeName = '/ad-detail';
@@ -24,10 +25,7 @@ class AdDetailScreen extends StatelessWidget {
                   flexibleSpace: FlexibleSpaceBar(
                     background: Hero(
                       tag: ad.id,
-                      child: Image.network(
-                        ad.images.elementAt(0),
-                        fit: BoxFit.cover,
-                      ),
+                      child: ImageCarousel(ad.images),
                     ),
                   ),
                 )
