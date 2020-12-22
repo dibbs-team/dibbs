@@ -18,10 +18,21 @@ class ImageCarousel extends StatelessWidget {
             ))
         .toList();
 
+    // Precache the second image.
+    if (images.length > 1) {
+      precacheImage(images[1]?.image, context);
+    }
+
     return Stack(children: [
       PageView(
         controller: controller,
         children: images,
+        onPageChanged: (index) {
+          // Precahce the following image.
+          if (index < images.length - 1) {
+            precacheImage(images[index + 1].image, context);
+          }
+        },
       ),
       if (images.length > 1)
         Align(
