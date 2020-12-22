@@ -324,4 +324,10 @@ class MyLocalizations {
         desc: 'Price in ad detail.',
         examples: const {'price': 99},
       );
+
+  String get userListings => Intl.message(
+        'Your listings',
+        name: 'userListings',
+        desc: 'Text shown on profile screen over the users listed ads.',
+      );
 }
