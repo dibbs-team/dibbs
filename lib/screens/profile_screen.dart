@@ -3,10 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:paginate_firestore/paginate_firestore.dart';
 
+import '../design/my_colors.dart';
 import '../models/ad.dart';
 import '../lang/my_localizations.dart';
 import '../design/my_attributes.dart';
-import '../widgets/profile/profile_drawer.dart';
 import '../widgets/explore/ad_item.dart';
 import '../utils/firestore_values.dart';
 
@@ -22,8 +22,49 @@ class ProfileScreen extends StatelessWidget {
     final l10n = MyLocalizations.of(context);
     const spacing = 24.0;
 
+    void showUserSettingsSheet() {
+      showModalBottomSheet<void>(
+        context: context,
+        shape: RoundedRectangleBorder(
+          borderRadius: MyAttributes.borderRadiusTop,
+        ),
+        //backgroundColor: MyColors.white,
+        builder: (BuildContext context) {
+          // Wrap allow the Sheet to have the same height as its content.
+          return Wrap(
+            alignment: WrapAlignment.center,
+            children: [
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // This button is currently always disabled since payment
+                    // have not been implemented yet.
+                    TextButton(
+                      child: Text(l10n.paymentSettings),
+                      onPressed: null,
+                    ),
+                    Divider(),
+                    TextButton(
+                      child: Text(l10n.signOut),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        this.signOut();
+                      },
+                    ),
+                    Divider(),
+                  ],
+                ),
+              )
+            ],
+          );
+        },
+      );
+    }
+
     return Scaffold(
-      endDrawer: ProfileDrawer(callback: signOut),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(l10n.profileScreenTitle),
@@ -31,7 +72,7 @@ class ProfileScreen extends StatelessWidget {
           Builder(
             builder: (context) => IconButton(
               icon: Icon(Icons.settings),
-              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              onPressed: showUserSettingsSheet,
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             ),
           ),

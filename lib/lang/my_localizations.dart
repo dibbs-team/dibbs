@@ -330,4 +330,10 @@ class MyLocalizations {
         name: 'userListings',
         desc: 'Text shown on profile screen over the users listed ads.',
       );
+
+  String get paymentSettings => Intl.message(
+        'Payment settings',
+        name: 'paymentSettings',
+        desc: 'Open payment settings, shown on button',
+      );
 }
