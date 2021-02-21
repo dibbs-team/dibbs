@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
+import '../design/my_colors.dart';
 import '../lang/my_localizations.dart';
 import '../widgets/setup/continue_button.dart';
 import '../widgets/setup/code_input.dart';
@@ -63,10 +64,7 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
               const Spacer(flex: 1),
               Text(
                 l10n.addCommunityInstruction,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.0,
-                ),
+                style: Theme.of(context).textTheme.headline1,
               ),
               const SizedBox(height: 36.0),
               CodeInput(
@@ -96,11 +94,9 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
                 child: Text(
                   l10n.noCommunityFound,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.headline3.copyWith(
+                        color: MyColors.errorRed,
+                      ),
                 ),
               ),
               const Spacer(flex: 1),

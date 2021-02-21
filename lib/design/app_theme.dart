@@ -12,8 +12,8 @@ class AppTheme {
         buttonTheme: ButtonThemeData(
           buttonColor: MyColors.teal,
           padding: MyAttributes.buttonPadding,
-          height: 50,
-          minWidth: 200,
+          height: 50.0,
+          minWidth: 200.0,
           //* I strongly recommend that we continue using the primary attribute
           //* since this will automatically detect the best color for the text.
           //* (johanehinger)
@@ -33,10 +33,9 @@ class AppTheme {
           type: BottomNavigationBarType.fixed,
         ),
         dividerTheme: DividerThemeData(
-          color: MyColors.teal,
-          thickness: 2,
-          indent: 10,
-          endIndent: 10,
+          thickness: 2.0,
+          indent: 10.0,
+          endIndent: 10.0,
         ),
         appBarTheme: AppBarTheme(
           color: MyColors.white,
@@ -56,15 +55,46 @@ class AppTheme {
           ),
         ),
         textTheme: TextTheme(
+          headline1: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: MyColors.black,
+          ),
+          headline2: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            color: MyColors.black,
+          ),
+          headline3: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: MyColors.black,
+          ),
+          headline4: TextStyle(
+            fontSize: 12.0,
+            fontWeight: FontWeight.bold,
+            color: MyColors.black,
+          ),
+          bodyText1: TextStyle(
+            color: MyColors.black,
+            fontSize: 16.0,
+          ),
+          bodyText2: TextStyle(
+            color: MyColors.black,
+            fontSize: 12.0,
+          ),
+          subtitle1: TextStyle(
+            fontSize: 16.0,
+            color: MyColors.black,
+          ),
+          subtitle2: TextStyle(
+            fontSize: 12.0,
+            color: MyColors.black,
+          ),
           caption: TextStyle(
             color: MyColors.black,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
-          ),
-          headline6: TextStyle(
-            fontSize: 12.0,
-            fontWeight: FontWeight.bold,
-            color: MyColors.black,
           ),
         ),
         scaffoldBackgroundColor: MyColors.white);

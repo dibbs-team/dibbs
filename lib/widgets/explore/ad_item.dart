@@ -43,7 +43,7 @@ class AdItem extends StatelessWidget {
                 children: [
                   Text(
                     ad.title,
-                    style: AppTheme().themedata.textTheme.caption,
+                    style: AppTheme().themedata.textTheme.subtitle1,
                   ),
                   Text(
                     ad.price.toString(),
