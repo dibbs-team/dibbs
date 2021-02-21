@@ -37,10 +37,7 @@ class InformationScreen extends StatelessWidget {
                 children: [
                   Text(
                     l10n.informationWelcome(name).toUpperCase(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0,
-                    ),
+                    style: Theme.of(context).textTheme.headline1,
                     textAlign: TextAlign.center,
                   ),
                   const Spacer(flex: 1),

@@ -20,10 +20,7 @@ class AdTypeSelector extends StatelessWidget {
         const Spacer(flex: 2),
         Text(
           l10n.chooseUploadTypeHint,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24.0,
-          ),
+          style: Theme.of(context).textTheme.headline1,
         ),
         const SizedBox(height: 48.0),
         Row(
