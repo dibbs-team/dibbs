@@ -36,7 +36,7 @@ class ProfileScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 30),
+                padding: EdgeInsets.symmetric(vertical: 30.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -79,15 +79,17 @@ class ProfileScreen extends StatelessWidget {
         ],
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Picture, name
           Container(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(16.0),
             width: double.infinity,
             child: Row(
               children: [
                 Container(
-                  width: 100,
-                  height: 100,
+                  width: 70,
+                  height: 70,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
@@ -103,9 +105,8 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       Text(
                         user.displayName,
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
+                        maxLines: 2,
+                        style: Theme.of(context).textTheme.headline1,
                       ),
                     ],
                   ),
@@ -113,15 +114,29 @@ class ProfileScreen extends StatelessWidget {
               ],
             ),
           ),
-          Text(l10n.userListings),
           Padding(
-            padding: const EdgeInsets.only(top: 16.0),
-            child: const Divider(height: 0),
+            padding: const EdgeInsets.only(left: 20.0, top: 10, bottom: 20.0),
+            child: Text(
+              l10n.userListings,
+              style: Theme.of(context).textTheme.headline2,
+            ),
           ),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: const Divider(
+              height: 0,
+              indent: 10.0,
+              endIndent: 10.0,
+            ),
+          ),
+
+          // Listings
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: spacing),
               child: PaginateFirestore(
+                header: SizedBox(height: 24.0),
                 itemBuilderType: PaginateBuilderType.gridView,
                 itemBuilder: (index, ctx, documentSnapshot) =>
                     AdItem(Ad.fromFirestoreObject(documentSnapshot)),
