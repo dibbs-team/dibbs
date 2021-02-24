@@ -73,6 +73,26 @@ class MyLocalizations {
         desc: 'Renting rules title.',
       );
 
+  String get cancellationTerms => Intl.message(
+        'Cancellation terms',
+        name: 'cancellationTerms',
+        desc: 'Cancellation terms title.',
+      );
+
+  String get rentingRulesBody => Intl.message(
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
+        'eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        name: 'rentinRulesBody',
+        desc: 'Renting rules text.',
+      );
+
+  String get cancellationTermsBody => Intl.message(
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
+        'eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        name: 'cancellationTermsBody',
+        desc: 'Cancellation terms text.',
+      );
+
   String get description => Intl.message(
         'Description',
         name: 'description',
@@ -311,10 +331,16 @@ class MyLocalizations {
         desc: 'Text shown when there are no ads in the feed screen.',
       );
 
-  String get dibbItem => Intl.message(
+  String get dibbListAd => Intl.message(
         'Dibb this item',
-        name: 'dibbItem',
+        name: 'dibbListAd',
         desc: 'Text shown on button for renting an item.',
+      );
+
+  String get dibbFindAd => Intl.message(
+        'I have this item',
+        name: 'dibbFindAd',
+        desc: 'Text shown on button for responding to a find ad.',
       );
 
   String adPrice(int price) => Intl.message(
@@ -335,5 +361,21 @@ class MyLocalizations {
         'Payment settings',
         name: 'paymentSettings',
         desc: 'Open payment settings, shown on button',
+      );
+
+  String listAdUploaderName(String uploader) => Intl.message(
+        'Rented out by $uploader',
+        name: 'listAdUploaderName',
+        args: [uploader],
+        desc: 'Text for preseting name of uploader of list ad.',
+        examples: const {'uploader': 'Peter Pan'},
+      );
+
+  String findAdUploaderName(String uploader) => Intl.message(
+        'Posted by $uploader',
+        name: 'findAdUploaderName',
+        args: [uploader],
+        desc: 'Text for preseting name of uploader of find ad.',
+        examples: const {'uploader': 'Peter Pan'},
       );
 }

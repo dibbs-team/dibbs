@@ -30,14 +30,58 @@ class AdDetailScreen extends StatelessWidget {
                   ),
                 )
               : SliverAppBar(),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                Text(ad.title),
-                Text(l10n.adPrice(ad.price)),
-                UploaderInfo(ad.uploader),
-                Text(ad.description),
-              ],
+          SliverPadding(
+            padding: const EdgeInsets.all(36.0),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Text(
+                    ad.title,
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
+                  Text(
+                    l10n.adPrice(ad.price),
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  Divider(),
+                  Text(
+                    l10n.description,
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                  Text(
+                    ad.description,
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
+                  Divider(),
+                  UploaderInfo(
+                    uploaderInfo: ad is ListAd
+                        ? l10n.listAdUploaderName(ad.uploader.name)
+                        : l10n.findAdUploaderName(ad.uploader.name),
+                    image: ad.uploader.image,
+                  ),
+                  Divider(),
+                  Text(
+                    l10n.rentingRules,
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                  Text(
+                    l10n.rentingRulesBody,
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
+                  Text(
+                    '', //* Empty text to get same height as a new line.
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
+                  Text(
+                    l10n.cancellationTerms,
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
+                  Text(
+                    l10n.cancellationTermsBody,
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -47,7 +91,7 @@ class AdDetailScreen extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: MyAttributes.borderRadiusTop,
         ),
-        child: Text(l10n.dibbItem),
+        child: Text(ad is ListAd ? l10n.dibbListAd : l10n.dibbFindAd),
       ),
     );
   }

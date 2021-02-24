@@ -76,11 +76,11 @@ class AppTheme {
           ),
           bodyText1: TextStyle(
             color: MyColors.black,
-            fontSize: 16.0,
+            fontSize: 18.0,
           ),
           bodyText2: TextStyle(
             color: MyColors.black,
-            fontSize: 12.0,
+            fontSize: 14.0,
           ),
           subtitle1: TextStyle(
             fontSize: 16.0,

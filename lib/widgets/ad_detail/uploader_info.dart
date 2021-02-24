@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 
-import '../../models/ad.dart';
-
 class UploaderInfo extends StatelessWidget {
-  final Uploader uploader;
+  final String uploaderInfo;
+  final String image;
 
-  UploaderInfo(this.uploader);
+  UploaderInfo({@required this.uploaderInfo, @required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         CircleAvatar(
-          radius: 25,
-          backgroundImage: NetworkImage(uploader.image),
+          radius: 32.0,
+          backgroundImage: NetworkImage(image),
         ),
-        Text(uploader.name),
+        const SizedBox(width: 12.0),
+        Text(
+          uploaderInfo,
+          style: Theme.of(context).textTheme.headline3,
+        ),
       ],
     );
   }
