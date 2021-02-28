@@ -22,10 +22,10 @@ dependencies:
   intl_translation: ^0.17.10+1
 
   # Firebase
-  firebase_core: ^0.5.3
-  cloud_firestore: ^0.14.4
-  firebase_auth: ^0.18.4+1
-  firebase_storage: ^5.2.0
+  firebase_core: ^0.7.0
+  cloud_firestore: ^0.16.0+1
+  firebase_auth: ^0.20.1
+  firebase_storage: ^7.0.0
 
   # Third party
   auth_buttons: ^0.0.4
@@ -35,13 +35,13 @@ dependencies:
   enum_to_string: ^1.0.14
   equatable: ^1.2.5
   reorderables: ^0.3.2
-  paginate_firestore: ^0.2.2
+  paginate_firestore: ^0.3.0+1
 
   # Debugging
   logger: ^0.9.4
 
   # Testing
-  cloud_firestore_mocks: ^0.5.2+1
+  cloud_firestore_mocks: ^0.6.0
 
 dev_dependencies:
   flutter_test:
