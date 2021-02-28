@@ -29,7 +29,7 @@ dependencies:
 
   # Third party
   auth_buttons: ^0.0.4
-  smooth_page_indicator: ^0.2.0
+  smooth_page_indicator: ^0.2.1
   tap_debouncer: ^1.0.1
   pinput: ^0.2.0
   enum_to_string: ^1.0.14
