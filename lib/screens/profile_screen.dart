@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:paginate_firestore/paginate_firestore.dart';
 
-import '../design/my_colors.dart';
 import '../models/ad.dart';
 import '../lang/my_localizations.dart';
 import '../design/my_attributes.dart';
@@ -28,7 +27,6 @@ class ProfileScreen extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: MyAttributes.borderRadiusTop,
         ),
-        //backgroundColor: MyColors.white,
         builder: (BuildContext context) {
           // Wrap allow the Sheet to have the same height as its content.
           return Wrap(
@@ -136,6 +134,7 @@ class ProfileScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: spacing),
               child: PaginateFirestore(
+                isLive: true, //* Causes a refresh when a new ad is uploaded.
                 header: SizedBox(height: 24.0),
                 itemBuilderType: PaginateBuilderType.gridView,
                 itemBuilder: (index, ctx, documentSnapshot) =>
