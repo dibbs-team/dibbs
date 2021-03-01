@@ -25,6 +25,41 @@ class AppTheme {
             ),
           ),
         ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(borderRadius: MyAttributes.borderRadius),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            padding: MyAttributes.buttonPadding,
+            minimumSize: Size(
+              200.0,
+              50.0,
+            ),
+            primary: MyColors.black,
+            side: BorderSide(
+              color: MyColors.teal,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: MyAttributes.borderRadius,
+            ),
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            primary: MyColors.teal,
+            padding: MyAttributes.buttonPadding,
+            minimumSize: Size(
+              200.0,
+              50.0,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: MyAttributes.borderRadius,
+              side: BorderSide(
+                color: MyColors.teal,
+              ),
+            ),
+          ),
+        ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: MyColors.teal,
           elevation: 0,

@@ -4,9 +4,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:reorderables/reorderables.dart';
-
 import 'new_image.dart';
 import 'image_item.dart';
+import '../../../lang/my_localizations.dart';
 import '../../../design/my_attributes.dart';
 
 // ignore: must_be_immutable
@@ -100,6 +100,8 @@ class _ImageSequencePickerStateImpl extends State<_ImageSequencePickerImpl> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = MyLocalizations.of(context);
+
     return LayoutBuilder(builder: (ctx, constraints) {
       final spacing = 16.0;
       final itemWidth =
@@ -126,15 +128,24 @@ class _ImageSequencePickerStateImpl extends State<_ImageSequencePickerImpl> {
         items.add(newImage);
       }
 
-      return ReorderableWrap(
-        spacing: spacing,
-        runSpacing: spacing,
-        children: items,
-        onReorder: _onReorder,
-        buildDraggableFeedback: (context, constraints, child) => Container(
-          child: child,
-          color: Colors.transparent,
-        ),
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ReorderableWrap(
+            spacing: spacing,
+            runSpacing: spacing,
+            children: items,
+            onReorder: _onReorder,
+            buildDraggableFeedback: (context, constraints, child) => Container(
+              child: child,
+              color: Colors.transparent,
+            ),
+          ),
+          const SizedBox(height: 24.0),
+          Text(
+            l10n.listAdImagesInfo(images.length),
+          )
+        ],
       );
     });
   }

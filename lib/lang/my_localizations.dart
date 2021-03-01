@@ -242,10 +242,28 @@ class MyLocalizations {
         desc: 'Showed in a snackbar when a call to firebase gives an error.',
       );
 
+  String get findAdTitle => Intl.message(
+        'Describe the item you are looking for',
+        name: 'findAdTitle',
+        desc: 'Title screen for form input when uploading a find ad.',
+      );
+
   String get findAdDescriptionTitle => Intl.message(
-        'Describe what you are looking for',
+        'Description',
         name: 'findAdDescriptionTitle',
         desc: 'Title on description input when uploading a find ad.',
+      );
+
+  String get findAdDescriptionHint => Intl.message(
+        'Describe what you are looking for',
+        name: 'findAdDescriptionhint',
+        desc: 'Hint on description input when uploading a find ad.',
+      );
+
+  String get findAdPriceHint => Intl.message(
+        '00',
+        name: 'findAdPriceTitle',
+        desc: 'Hint on price input when uploading a find ad.',
       );
 
   String get findAdPriceTitle => Intl.message(
@@ -266,11 +284,30 @@ class MyLocalizations {
         desc: 'Title for accepting terms when uploading a find ad.',
       );
 
-  String get adInputPhone => Intl.message(
+  String get adInputContactNr => Intl.message(
         'Add contact number',
-        name: 'adInputPhone',
+        name: 'adInputContactNr',
+        desc: 'Title above phone number input',
+      );
+
+  String get adInputPhoneTitle => Intl.message(
+        'Phone Number',
+        name: 'adInputPhoneTitle',
         desc: 'Title on phone input when uploading an ad.',
       );
+
+  String get adInputPhoneHint => Intl.message(
+        '070 123 45 67',
+        name: 'adInputPhoneHint',
+        desc: 'Hint on phone input when uploading an ad.',
+      );
+
+  String get adInputPhoneInfo => Intl.message(
+        'Your phone number will only be visible upon accepted booking',
+        name: 'adInputPhoneInfo',
+        desc: 'More information about phone input when uploading an ad.',
+      );
+
   String get longTemp => Intl.message(
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
         'eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad'
@@ -290,21 +327,46 @@ class MyLocalizations {
       );
 
   String get listAdImagesTitle => Intl.message(
-        'Uplaod images',
+        'Upload pictures',
         name: 'listAdImagesTitle',
         desc: 'Title for uploading images when creating a list ad.',
       );
 
-  String get listAdDescriptionTitle => Intl.message(
+  String listAdImagesInfo(int nrPhotos) => Intl.message(
+        'Photos $nrPhotos/6. Add your main picture first. Add more photos to show different angles or marks',
+        name: 'listAdImagesInfo',
+        desc:
+            'Additional info to show when uploading images when creating a list ad.',
+      );
+
+  String get listAdDescriptionHint => Intl.message(
         'Describe your item',
+        name: 'listAdDescriptionHint',
+        desc: 'Hint on description input when uploading a list ad.',
+      );
+
+  String get listAdTitle => Intl.message(
+        'Describe your item',
+        name: 'listAdTitle',
+        desc: 'Title of form when uploading a list ad',
+      );
+
+  String get listAdDescriptionTitle => Intl.message(
+        'Description',
         name: 'listAdDescriptionTitle',
-        desc: 'Title on description input when uploading a find ad.',
+        desc: 'Title on description input when uploading a list ad.',
       );
 
   String get listAdPriceTitle => Intl.message(
         'Price per day',
         name: 'listAdPriceTitle',
         desc: 'Title on price input when uploading a list ad.',
+      );
+
+  String get listAdPriceHint => Intl.message(
+        '0 SEK',
+        name: 'listAdPriceHint',
+        desc: 'Hint on price input when uploading a list ad.',
       );
 
   String get listAdPaymentTitle => Intl.message(

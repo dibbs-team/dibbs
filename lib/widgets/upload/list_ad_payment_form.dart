@@ -20,6 +20,7 @@ class ListAdPaymentForm extends UploadStep {
       key: _formKey,
       child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FormTitle(l10n.listAdPaymentTitle),
           ],

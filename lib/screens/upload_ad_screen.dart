@@ -193,7 +193,8 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
       child: Scaffold(
         appBar: AppBar(
           // Do not show back button on first step.
-          leading: _currentIndex == 0 ? Container() : BackButton(),
+          leading: _currentIndex == 0 ? null : BackButton(),
+          automaticallyImplyLeading: false,
           title: Text(
             _currentIndex == 0
                 ? l10n.chooseUploadTypeTitle
@@ -224,7 +225,10 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
                     await _finishStep();
                   }
                 },
-                child: _currentStep,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: _currentStep,
+                ),
               ),
       ),
     );
