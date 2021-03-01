@@ -28,7 +28,7 @@ class AdTypeSelector extends StatelessWidget {
               flex: 3,
               child: OutlinedButton(
                 onPressed: onSelectedFind,
-                child: Text(l10n.uploadTypeFind.toUpperCase()),
+                child: Text(l10n.uploadTypeFind),
               ),
             ),
             const Spacer(flex: 1),
@@ -36,7 +36,7 @@ class AdTypeSelector extends StatelessWidget {
               flex: 3,
               child: OutlinedButton(
                 onPressed: onSelectedList,
-                child: Text(l10n.uploadTypeList.toUpperCase()),
+                child: Text(l10n.uploadTypeList),
               ),
             ),
             const Spacer(flex: 1),
