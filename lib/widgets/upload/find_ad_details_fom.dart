@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'form_field_title.dart';
 import 'form_title.dart';
 import 'form_input_field.dart';
 import 'date_range_picker.dart';
 import 'upload_step.dart';
+import '../../utils/ad_types.dart';
 import '../../lang/my_localizations.dart';
 
 class FindAdDetailsForm extends UploadStep {
@@ -11,8 +13,8 @@ class FindAdDetailsForm extends UploadStep {
 
   // Handles to input fields.
   final _titleField = FormInputField.title();
-  final _descriptionField = FormInputField.description();
-  final _priceField = FormInputField.price();
+  final _descriptionField = FormInputField.description(AdType.FIND);
+  final _priceField = FormInputField.price(AdType.FIND);
   final _dateRangePicker = DateRangePicker();
 
   String get title => _titleField.value;
@@ -33,14 +35,15 @@ class FindAdDetailsForm extends UploadStep {
       key: _formKey,
       child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FormTitle(l10n.findAdDescriptionTitle),
+            FormTitle(l10n.findAdTitle),
             _titleField,
             _descriptionField,
-            FormTitle(l10n.findAdPriceTitle),
             _priceField,
-            FormTitle(l10n.findAdDateTitle),
+            FormFieldTitle(l10n.findAdDateTitle),
             _dateRangePicker,
+            const SizedBox(height: 24.0),
           ],
         ),
       ),

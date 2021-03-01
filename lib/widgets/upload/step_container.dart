@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tap_debouncer/tap_debouncer.dart';
 
+import '../../design/my_attributes.dart';
+import '../../design/my_colors.dart';
 import '../../lang/my_localizations.dart';
 
 class StepContainer extends StatelessWidget {
@@ -29,7 +31,12 @@ class StepContainer extends StatelessWidget {
             onTap: () async {
               await onButtonPressed();
             },
-            builder: (ctx, onTap) => RaisedButton(
+            builder: (ctx, onTap) => ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: MyColors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: MyAttributes.borderRadiusTop),
+              ),
               child: Text(
                 step == totalSteps ? l10n.uploadAd : l10n.nextStep,
               ),

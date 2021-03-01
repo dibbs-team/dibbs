@@ -8,8 +8,11 @@ class FormTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Text(title),
+      padding: const EdgeInsets.symmetric(vertical: 24.0),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.headline2,
+      ),
     );
   }
 }

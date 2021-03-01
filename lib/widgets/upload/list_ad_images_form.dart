@@ -25,6 +25,7 @@ class ListAdImagesForm extends UploadStep {
     final l10n = MyLocalizations.of(context);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         FormTitle(l10n.listAdImagesTitle),
         Padding(

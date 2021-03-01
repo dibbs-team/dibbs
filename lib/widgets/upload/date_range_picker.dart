@@ -81,7 +81,7 @@ class _DateRangePickerImplState extends State<_DateRangePickerImpl> {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return OutlinedButton(
       child: Text(
         '${DateFormat.yMMMMd().format(selectedDates.start)} - '
         '${DateFormat.yMMMMd().format(selectedDates.end)}',

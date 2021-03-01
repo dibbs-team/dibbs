@@ -21,10 +21,12 @@ class AdUploaderForm extends UploadStep {
       key: _formKey,
       child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FormTitle(l10n.findAdTermsTitle),
             Text(l10n.longTemp),
-            FormTitle(l10n.adInputPhone),
+            FormTitle(l10n.adInputContactNr),
+            Text(l10n.adInputPhoneInfo),
             FormInputField.phone(),
           ],
         ),

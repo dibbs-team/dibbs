@@ -34,30 +34,49 @@ class NewImage extends StatelessWidget {
               icon: Icon(Icons.add),
               onPressed: () {
                 showModalBottomSheet(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: MyAttributes.borderRadiusTop,
+                  ),
                   context: context,
                   builder: (ctx) {
-                    return Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          FlatButton.icon(
-                            label: Text(l10n.camera),
-                            icon: Icon(Icons.camera_alt),
-                            onPressed: () {
-                              newCameraImage();
-                              Navigator.of(context).pop();
-                            },
+                    return Wrap(
+                      alignment: WrapAlignment.center,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              TextButton.icon(
+                                  label: Text(l10n.camera),
+                                  icon: Icon(Icons.camera_alt),
+                                  onPressed: () {
+                                    newCameraImage();
+                                    Navigator.of(context).pop();
+                                  },
+                                  style: TextButton.styleFrom(
+                                    minimumSize: Size.fromHeight(70),
+                                  )),
+                              Divider(height: 8),
+                              TextButton.icon(
+                                label: Text(
+                                  l10n.gallery,
+                                ),
+                                style: TextButton.styleFrom(
+                                  minimumSize: Size.fromHeight(70),
+                                ),
+                                icon: Icon(Icons.photo),
+                                onPressed: () {
+                                  newGalleryImage();
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                              Divider(height: 8),
+                            ],
                           ),
-                          FlatButton.icon(
-                            label: Text(l10n.gallery),
-                            icon: Icon(Icons.photo),
-                            onPressed: () {
-                              newGalleryImage();
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     );
                   },
                 );
