@@ -261,7 +261,7 @@ class MyLocalizations {
       );
 
   String get findAdPriceHint => Intl.message(
-        '00',
+        '0 SEK',
         name: 'findAdPriceTitle',
         desc: 'Hint on price input when uploading a find ad.',
       );
