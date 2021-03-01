@@ -9,6 +9,7 @@ class AppTheme {
         primaryColor: MyColors.teal,
         accentColor: MyColors.orange,
         backgroundColor: MyColors.white,
+        fontFamily: 'SF-Pro-Text',
         buttonTheme: ButtonThemeData(
           buttonColor: MyColors.teal,
           padding: MyAttributes.buttonPadding,
@@ -82,52 +83,39 @@ class AppTheme {
           ),
           textTheme: TextTheme(
             headline6: TextStyle(
-              color: MyColors.black,
-              fontSize: 20,
+              fontFamily: 'SF-Pro-Display',
+              fontSize: 25.0,
               fontWeight: FontWeight.bold,
+              color: MyColors.black,
             ),
           ),
         ),
         textTheme: TextTheme(
+          //* Heading
           headline1: TextStyle(
-            fontSize: 24.0,
+            fontFamily: 'SF-Pro-Display',
+            fontSize: 25.0,
             fontWeight: FontWeight.bold,
             color: MyColors.black,
           ),
+          //* Text Heading
           headline2: TextStyle(
+            fontFamily: 'SF-Pro-Display',
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
             color: MyColors.black,
           ),
-          headline3: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
-            color: MyColors.black,
-          ),
-          headline4: TextStyle(
-            fontSize: 12.0,
-            fontWeight: FontWeight.bold,
-            color: MyColors.black,
-          ),
+          //* Body Text
           bodyText1: TextStyle(
+            fontFamily: 'SF-Pro-Text',
             color: MyColors.black,
-            fontSize: 18.0,
+            fontSize: 15.0,
           ),
+          //* Emphasised Ingress
           bodyText2: TextStyle(
+            fontFamily: 'SF-Pro-Text',
             color: MyColors.black,
-            fontSize: 14.0,
-          ),
-          subtitle1: TextStyle(
-            fontSize: 16.0,
-            color: MyColors.black,
-          ),
-          subtitle2: TextStyle(
-            fontSize: 12.0,
-            color: MyColors.black,
-          ),
-          caption: TextStyle(
-            color: MyColors.black,
-            fontSize: 18.0,
+            fontSize: 15.0,
             fontWeight: FontWeight.bold,
           ),
         ),

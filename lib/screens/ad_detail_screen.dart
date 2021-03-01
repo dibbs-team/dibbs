@@ -41,7 +41,7 @@ class AdDetailScreen extends StatelessWidget {
                   ),
                   Text(
                     l10n.adPrice(ad.price),
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                   Divider(),
                   Text(
@@ -50,7 +50,7 @@ class AdDetailScreen extends StatelessWidget {
                   ),
                   Text(
                     ad.description,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                   Divider(),
                   UploaderInfo(
@@ -66,19 +66,19 @@ class AdDetailScreen extends StatelessWidget {
                   ),
                   Text(
                     l10n.rentingRulesBody,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                   Text(
                     '', //* Empty text to get same height as a new line.
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                   Text(
                     l10n.cancellationTerms,
-                    style: Theme.of(context).textTheme.headline3,
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                   Text(
                     l10n.cancellationTermsBody,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ],
               ),
