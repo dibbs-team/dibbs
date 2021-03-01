@@ -19,7 +19,7 @@ class InformationCard extends StatelessWidget {
               padding: const EdgeInsets.only(top: 24.0),
               child: Text(
                 title,
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headline2,
               ),
             ),
           if (body != null)
@@ -28,7 +28,7 @@ class InformationCard extends StatelessWidget {
                 padding: const EdgeInsets.all(24.0),
                 child: Text(
                   body,
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.bodyText1,
                   textAlign: TextAlign.center,
                 ),
               ),

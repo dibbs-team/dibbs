@@ -64,7 +64,7 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
               const Spacer(flex: 1),
               Text(
                 l10n.addCommunityInstruction,
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headline2,
               ),
               const SizedBox(height: 36.0),
               CodeInput(
@@ -94,7 +94,7 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
                 child: Text(
                   l10n.noCommunityFound,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline3.copyWith(
+                  style: Theme.of(context).textTheme.bodyText2.copyWith(
                         color: MyColors.errorRed,
                       ),
                 ),

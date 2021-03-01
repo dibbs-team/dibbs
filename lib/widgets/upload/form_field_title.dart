@@ -11,7 +11,7 @@ class FormFieldTitle extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Text(
         fieldTitle,
-        style: Theme.of(context).textTheme.headline3,
+        style: Theme.of(context).textTheme.bodyText2,
       ),
     );
   }
