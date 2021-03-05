@@ -139,11 +139,16 @@ class ProfileScreen extends StatelessWidget {
                 itemBuilderType: PaginateBuilderType.gridView,
                 itemBuilder: (index, ctx, documentSnapshot) =>
                     AdItem(Ad.fromFirestoreObject(documentSnapshot)),
-                query:
-                    FirebaseFirestore.instance.collection(Collection.ads).where(
-                          '${Ads.uploader}.${AdUploader.id}',
-                          isEqualTo: user.uid,
-                        ),
+                query: FirebaseFirestore.instance
+                    .collection(Collection.ads)
+                    .where(
+                      '${Ads.uploader}.${AdUploader.id}',
+                      isEqualTo: user.uid,
+                    )
+                    .where(
+                      Ads.complete,
+                      isEqualTo: true,
+                    ),
                 itemsPerPage: 10,
                 emptyDisplay: Container(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

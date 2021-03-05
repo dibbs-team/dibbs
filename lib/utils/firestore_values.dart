@@ -33,6 +33,7 @@ class Ads {
   static const uploader = 'uploader';
   static const images = 'image_urls';
   static const dates = 'date_range';
+  static const complete = 'complete';
 }
 
 class AdUploader {

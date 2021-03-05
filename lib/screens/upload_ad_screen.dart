@@ -141,7 +141,9 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
       DocumentReference adRef;
       try {
         // Create an ad to get a reference to a document.
-        adRef = await _firestore.collection(Collection.ads).add({});
+        adRef = await _firestore
+            .collection(Collection.ads)
+            .add({Ads.complete: false});
 
         // Upload images to Firebase Storage.
         final images = await _uploadImages(
@@ -150,13 +152,13 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
         );
 
         // Upload ad.
-        await _firestore.collection(Collection.ads).add(ListAd(
-              title: listAdDetailsForm.title,
-              description: listAdDetailsForm.description,
-              price: listAdDetailsForm.price,
-              images: images,
-              uploader: uploader,
-            ).toFirestoreObject());
+        await adRef.set(ListAd(
+          title: listAdDetailsForm.title,
+          description: listAdDetailsForm.description,
+          price: listAdDetailsForm.price,
+          images: images,
+          uploader: uploader,
+        ).toFirestoreObject());
 
         return true;
       } catch (e) {
