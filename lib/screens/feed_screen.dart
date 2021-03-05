@@ -42,7 +42,10 @@ class _FeedScreenState extends State<FeedScreen> {
             itemBuilderType: PaginateBuilderType.gridView,
             itemBuilder: (index, ctx, documentSnapshot) =>
                 AdItem(Ad.fromFirestoreObject(documentSnapshot)),
-            query: FirebaseFirestore.instance.collection(Collection.ads),
+            query: FirebaseFirestore.instance.collection(Collection.ads).where(
+                  Ads.complete,
+                  isEqualTo: true,
+                ),
             emptyDisplay: NoAdsDisplay(),
             itemsPerPage: 10,
             key: Key(_lastRefresh.toString()),

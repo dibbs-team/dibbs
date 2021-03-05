@@ -103,6 +103,7 @@ class FindAd extends Ad {
         DateRange.endDate: dates.end,
       },
       Ads.type: EnumToString.convertToString(AdType.FIND),
+      Ads.complete: true,
     };
   }
 }
@@ -138,6 +139,7 @@ class ListAd extends Ad {
       Ads.uploader: uploader.toFirestoreObject(),
       Ads.images: images,
       Ads.type: EnumToString.convertToString(AdType.LIST),
+      Ads.complete: true,
     };
   }
 }

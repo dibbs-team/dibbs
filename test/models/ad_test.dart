@@ -42,6 +42,7 @@ void main() {
               DateRange.endDate: DateTime(2020, 12, 24),
             },
             Ads.type: 'FIND',
+            Ads.complete: true,
           });
         },
       );
@@ -95,6 +96,7 @@ void main() {
               AdUploader.image: '<image_url3>',
             },
             Ads.type: 'LIST',
+            Ads.complete: true,
           });
         },
       );
