@@ -41,7 +41,7 @@ dependencies:
   logger: ^0.9.4
 
   # Testing
-  cloud_firestore_mocks: ^0.6.0
+  # cloud_firestore_mocks: ^0.6.0
 
 dev_dependencies:
   flutter_test:
