@@ -13,35 +13,38 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  google_sign_in: ^4.5.6
-  shared_preferences: ^0.5.12+4
-  image_picker: ^0.6.7+15
+  google_sign_in: ^5.0.0
+  shared_preferences: ^2.0.3
+  image_picker: ^0.7.2
 
   # Dart
-  intl: ^0.16.1
+  intl: ^0.17.0
   intl_translation: ^0.17.10+1
 
   # Firebase
-  firebase_core: ^0.7.0
-  cloud_firestore: ^0.16.0+1
-  firebase_auth: ^0.20.1
-  firebase_storage: ^7.0.0
+  firebase_core: ^1.0.0
+  cloud_firestore: ^1.0.0
+  firebase_auth: ^1.0.0
+  firebase_storage: ^8.0.0
 
   # Third party
-  auth_buttons: ^0.0.4
+  auth_buttons: ^1.0.0
   smooth_page_indicator: ^0.2.1
   tap_debouncer: ^1.0.1
-  pinput: ^0.2.0
+  pinput: ^1.1.0
   enum_to_string: ^1.0.14
-  equatable: ^1.2.5
+  equatable: ^2.0.0
   reorderables: ^0.3.2
-  paginate_firestore: ^0.3.0+1
+  paginate_firestore: ^0.3.1
 
   # Debugging
   logger: ^0.9.4
 
   # Testing
   # cloud_firestore_mocks: ^0.6.0
+
+dependency_overrides:
+    intl: "0.17.0"
 
 dev_dependencies:
   flutter_test:
