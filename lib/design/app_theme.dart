@@ -10,22 +10,6 @@ class AppTheme {
         accentColor: MyColors.orange,
         backgroundColor: MyColors.white,
         fontFamily: 'SF-Pro-Text',
-        buttonTheme: ButtonThemeData(
-          buttonColor: MyColors.teal,
-          padding: MyAttributes.buttonPadding,
-          height: 50.0,
-          minWidth: 200.0,
-          //* I strongly recommend that we continue using the primary attribute
-          //* since this will automatically detect the best color for the text.
-          //* (johanehinger)
-          textTheme: ButtonTextTheme.primary,
-          shape: RoundedRectangleBorder(
-            borderRadius: MyAttributes.borderRadius,
-            side: BorderSide(
-              color: MyColors.teal,
-            ),
-          ),
-        ),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(borderRadius: MyAttributes.borderRadius),
         ),
@@ -55,12 +39,20 @@ class AppTheme {
             ),
             shape: RoundedRectangleBorder(
               borderRadius: MyAttributes.borderRadius,
-              side: BorderSide(
-                color: MyColors.teal,
-              ),
             ),
           ),
         ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            padding: MyAttributes.buttonPadding,
+            minimumSize: Size(
+              200.0,
+              70.0,
+            ),
+            alignment: Alignment.centerLeft,
+          ),
+        ),
+        iconTheme: IconThemeData(color: MyColors.black),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: MyColors.teal,
           elevation: 0,

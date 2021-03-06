@@ -18,7 +18,7 @@ class ContinueButton extends StatelessWidget {
 
     return TapDebouncer(
       onTap: onPressed,
-      builder: (ctx, onTap) => RaisedButton(
+      builder: (ctx, onTap) => ElevatedButton(
         child: Text(l10n.continueToCommunity(community)),
         onPressed: onTap,
       ),

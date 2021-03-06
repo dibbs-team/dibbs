@@ -86,12 +86,14 @@ class AdDetailScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: RaisedButton(
+      bottomNavigationBar: ElevatedButton(
         onPressed: () {},
-        shape: RoundedRectangleBorder(
-          borderRadius: MyAttributes.borderRadiusTop,
-        ),
         child: Text(ad is ListAd ? l10n.dibbListAd : l10n.dibbFindAd),
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: MyAttributes.borderRadiusTop,
+          ),
+        ),
       ),
     );
   }
