@@ -1,3 +1,4 @@
+import 'package:dibbs/design/my_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../design/my_attributes.dart';
@@ -49,24 +50,35 @@ class NewImage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               TextButton.icon(
-                                  label: Text(l10n.camera),
-                                  icon: Icon(Icons.camera_alt),
-                                  onPressed: () {
-                                    newCameraImage();
-                                    Navigator.of(context).pop();
-                                  },
-                                  style: TextButton.styleFrom(
-                                    minimumSize: Size.fromHeight(70),
-                                  )),
+                                label: Text(
+                                  l10n.camera,
+                                  style: Theme.of(context).textTheme.headline2,
+                                ),
+                                icon: Icon(
+                                  Icons.camera_alt,
+                                  color: MyColors.black,
+                                ),
+                                onPressed: () {
+                                  newCameraImage();
+                                  Navigator.of(context).pop();
+                                },
+                                style: TextButton.styleFrom(
+                                  minimumSize: Size.fromHeight(70),
+                                ),
+                              ),
                               Divider(height: 8),
                               TextButton.icon(
                                 label: Text(
                                   l10n.gallery,
+                                  style: Theme.of(context).textTheme.headline2,
                                 ),
                                 style: TextButton.styleFrom(
                                   minimumSize: Size.fromHeight(70),
                                 ),
-                                icon: Icon(Icons.photo),
+                                icon: Icon(
+                                  Icons.photo,
+                                  color: MyColors.black,
+                                ),
                                 onPressed: () {
                                   newGalleryImage();
                                   Navigator.of(context).pop();

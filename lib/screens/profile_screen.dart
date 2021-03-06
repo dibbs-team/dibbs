@@ -34,25 +34,34 @@ class ProfileScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 30.0),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 50.0,
+                  horizontal: 30.0,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     // This button is currently always disabled since payment
                     // have not been implemented yet.
                     TextButton(
-                      child: Text(l10n.paymentSettings),
-                      onPressed: null,
+                      child: Text(
+                        l10n.paymentSettings,
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
+                      onPressed: () {},
                     ),
-                    Divider(),
+                    Divider(height: 8),
                     TextButton(
-                      child: Text(l10n.signOut),
+                      child: Text(
+                        l10n.signOut,
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
                       onPressed: () {
                         Navigator.pop(context);
                         this.signOut();
                       },
                     ),
-                    Divider(),
+                    Divider(height: 8),
                   ],
                 ),
               )

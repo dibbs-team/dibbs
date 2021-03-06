@@ -75,7 +75,7 @@ class InformationScreen extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: bodyPadding),
                     child: Container(
                       width: double.infinity,
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
