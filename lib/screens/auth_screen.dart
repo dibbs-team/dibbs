@@ -5,7 +5,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../widgets/auth/login_button.dart';
 import '../lang/my_localizations.dart';
-import '../utils/show_snackbar.dart';
 import '../utils/auth_services.dart';
 import '../utils/firestore_values.dart';
 
@@ -17,7 +16,6 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   final _googleSignIn = GoogleSignIn();
   final _auth = auth.FirebaseAuth.instance;
-  final _scaffoldKey = GlobalKey<ScaffoldState>(); //* For showing SnackBar.
 
   /// Signs in a user with Google.
   Future<void> _signInWithGoogle() async {
@@ -53,7 +51,6 @@ class _AuthScreenState extends State<AuthScreen> {
     final l10n = MyLocalizations.of(context);
 
     return Scaffold(
-      key: _scaffoldKey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -62,9 +59,8 @@ class _AuthScreenState extends State<AuthScreen> {
               authenticationService: AuthenticationService.GOOGLE,
               onLoginUser: () {
                 _signInWithGoogle().catchError(
-                  (e) => showSnackbar(
-                    key: _scaffoldKey,
-                    message: l10n.authFailed,
+                  (e) => ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(l10n.authFailed)),
                   ),
                 );
               },

@@ -7,7 +7,6 @@ import '../lang/my_localizations.dart';
 import '../widgets/setup/continue_button.dart';
 import '../widgets/setup/code_input.dart';
 import '../utils/firestore_values.dart';
-import '../utils/show_snackbar.dart';
 
 class AddCommunityScreen extends StatefulWidget {
   static const routeName = '/add-community';
@@ -19,7 +18,6 @@ class AddCommunityScreen extends StatefulWidget {
 class _AddCommunityScreenState extends State<AddCommunityScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _user = auth.FirebaseAuth.instance.currentUser;
-  final _scaffoldKey = GlobalKey<ScaffoldState>(); //* For showing SnackBar.
   var _submittedCode = false; // Controls if continue button is displayed.
   var _foundCommunity = false; // Given community code exists.
   var _communityCode = ''; // Code to found community;
@@ -73,9 +71,8 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
                   try {
                     await _findCommunity(code);
                   } catch (error) {
-                    showSnackbar(
-                      key: _scaffoldKey,
-                      message: l10n.firebaseError,
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(l10n.firebaseError)),
                     );
                   }
                 },
@@ -110,9 +107,8 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
                       await _joinFoundCommunity();
                       Navigator.of(context).pop();
                     } catch (error) {
-                      showSnackbar(
-                        key: _scaffoldKey,
-                        message: l10n.firebaseError,
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(l10n.firebaseError)),
                       );
                     }
                   },
