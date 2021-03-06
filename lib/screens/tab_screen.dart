@@ -6,7 +6,6 @@ import 'feed_screen.dart';
 import 'upload_ad_screen.dart';
 import 'profile_screen.dart';
 import '../lang/my_localizations.dart';
-import '../utils/show_snackbar.dart';
 import '../design/my_attributes.dart';
 
 class TabScreen extends StatefulWidget {
@@ -46,7 +45,9 @@ class _TabScreenState extends State<TabScreen> {
         } else {
           // Something went wrong while uploading the ad.
           final l10n = MyLocalizations.of(context);
-          showSnackbar(key: _scaffoldKey, message: l10n.errorOccured);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(l10n.errorOccured)),
+          );
         }
       }
     } else {
