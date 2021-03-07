@@ -7,7 +7,7 @@ import '../design/my_attributes.dart';
 import '../widgets/explore/ad_item.dart';
 import '../widgets/explore/no_ads_display.dart';
 import '../models/ad.dart';
-import '../utils/firestore_values.dart';
+import '../utils/firestore_values.dart' as fs;
 
 class FeedScreen extends StatefulWidget {
   @override
@@ -42,10 +42,11 @@ class _FeedScreenState extends State<FeedScreen> {
             itemBuilderType: PaginateBuilderType.gridView,
             itemBuilder: (index, ctx, documentSnapshot) =>
                 AdItem(Ad.fromFirestoreObject(documentSnapshot)),
-            query: FirebaseFirestore.instance.collection(Collection.ads).where(
-                  Ads.complete,
-                  isEqualTo: true,
-                ),
+            query:
+                FirebaseFirestore.instance.collection(fs.Collection.ads).where(
+                      fs.Ad.complete,
+                      isEqualTo: true,
+                    ),
             emptyDisplay: NoAdsDisplay(),
             itemsPerPage: 10,
             key: Key(_lastRefresh.toString()),

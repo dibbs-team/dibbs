@@ -6,7 +6,7 @@ import '../design/my_colors.dart';
 import '../lang/my_localizations.dart';
 import '../widgets/setup/continue_button.dart';
 import '../widgets/setup/code_input.dart';
-import '../utils/firestore_values.dart';
+import '../utils/firestore_values.dart' as fs;
 
 class AddCommunityScreen extends StatefulWidget {
   static const routeName = '/add-community';
@@ -27,21 +27,21 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
   /// on the result.
   Future<void> _findCommunity(String code) async {
     final communitySnapshot =
-        await _firestore.collection(Collection.communities).doc(code).get();
+        await _firestore.collection(fs.Collection.communities).doc(code).get();
     setState(() {
       _submittedCode = true;
       _foundCommunity = communitySnapshot.exists;
       if (_foundCommunity) {
         _communityCode = code;
-        _communityName = communitySnapshot.data()[Communities.name];
+        _communityName = communitySnapshot.data()[fs.Communities.name];
       }
     });
   }
 
   /// Adds the found community to the signed in user.
   Future<void> _joinFoundCommunity() async {
-    _firestore.collection(Collection.users).doc(_user.uid).update({
-      Users.communities: FieldValue.arrayUnion([_communityCode])
+    _firestore.collection(fs.Collection.users).doc(_user.uid).update({
+      fs.User.communities: FieldValue.arrayUnion([_communityCode])
     });
   }
 

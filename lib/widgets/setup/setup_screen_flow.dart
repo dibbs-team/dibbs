@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 import '../../screens/tab_screen.dart';
 import '../../screens/add_community_screen.dart';
 import '../../screens/information_screen.dart';
-import '../../utils/firestore_values.dart';
+import '../../utils/firestore_values.dart' as fs;
 
 class SetupScreenFlow extends StatelessWidget {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
@@ -17,8 +17,8 @@ class SetupScreenFlow extends StatelessWidget {
   /// Checks if the user is not part of any community.
   Future<bool> _getUserHasNoCommuniy() async {
     final userSnapshot =
-        await _firestore.collection(Collection.users).doc(_user.uid).get();
-    var communities = userSnapshot.data()[Users.communities];
+        await _firestore.collection(fs.Collection.users).doc(_user.uid).get();
+    var communities = userSnapshot.data()[fs.User.communities];
     return communities?.isEmpty ?? true;
   }
 

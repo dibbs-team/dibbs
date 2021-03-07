@@ -7,7 +7,7 @@ import '../models/ad.dart';
 import '../lang/my_localizations.dart';
 import '../design/my_attributes.dart';
 import '../widgets/explore/ad_item.dart';
-import '../utils/firestore_values.dart';
+import '../utils/firestore_values.dart' as fs;
 
 class ProfileScreen extends StatelessWidget {
   final user = auth.FirebaseAuth.instance.currentUser;
@@ -149,13 +149,13 @@ class ProfileScreen extends StatelessWidget {
                 itemBuilder: (index, ctx, documentSnapshot) =>
                     AdItem(Ad.fromFirestoreObject(documentSnapshot)),
                 query: FirebaseFirestore.instance
-                    .collection(Collection.ads)
+                    .collection(fs.Collection.ads)
                     .where(
-                      '${Ads.uploader}.${AdUploader.id}',
+                      '${fs.Ad.uploader}.${fs.AdUploader.id}',
                       isEqualTo: user.uid,
                     )
                     .where(
-                      Ads.complete,
+                      fs.Ad.complete,
                       isEqualTo: true,
                     ),
                 itemsPerPage: 10,

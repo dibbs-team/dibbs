@@ -16,7 +16,7 @@ import '../widgets/upload/list_ad_images_form.dart';
 import '../widgets/upload/list_ad_details_form.dart';
 import '../widgets/upload/list_ad_payment_form.dart';
 import '../widgets/upload/upload_step.dart';
-import '../utils/firestore_values.dart';
+import '../utils/firestore_values.dart' as fs;
 import '../utils/ad_types.dart';
 
 class UploadAdScreen extends StatefulWidget {
@@ -93,7 +93,7 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
   }) async {
     // Get reference to directory to save images in.
     final imageDirectoryRef =
-        _storage.ref().child(Storage.adImages).child(adId);
+        _storage.ref().child(fs.Storage.adImages).child(adId);
 
     // Create a list that will be filled by image URLs.
     var res = List<String>.filled(images.length, '', growable: false);
@@ -126,7 +126,7 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
     if (type == AdType.FIND) {
       try {
         // Upload ad.
-        await _firestore.collection(Collection.ads).add(FindAd(
+        await _firestore.collection(fs.Collection.ads).add(FindAd(
               title: findAdDetailsForm.title,
               description: findAdDetailsForm.description,
               price: findAdDetailsForm.price,
@@ -142,8 +142,8 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
       try {
         // Create an ad to get a reference to a document.
         adRef = await _firestore
-            .collection(Collection.ads)
-            .add({Ads.complete: false});
+            .collection(fs.Collection.ads)
+            .add({fs.Ad.complete: false});
 
         // Upload images to Firebase Storage.
         final images = await _uploadImages(
@@ -165,8 +165,13 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
         // Clean up any already made writes.
         if (adRef != null) {
           adRef.delete();
-          _storage.ref().child(Storage.adImages).child(adRef.id).listAll().then(
-              (result) => result.items.forEach((image) => image.delete()));
+          _storage
+              .ref()
+              .child(fs.Storage.adImages)
+              .child(adRef.id)
+              .listAll()
+              .then(
+                  (result) => result.items.forEach((image) => image.delete()));
         }
 
         return false;

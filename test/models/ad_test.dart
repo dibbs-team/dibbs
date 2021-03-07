@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 // import 'package:cloud_firestore_mocks/cloud_firestore_mocks.dart';
 
 import 'package:dibbs/models/ad.dart';
-import 'package:dibbs/utils/firestore_values.dart';
+import 'package:dibbs/utils/firestore_values.dart' as fb;
 
 void main() {
   group(
@@ -29,20 +29,20 @@ void main() {
         'Ad to Firestore object',
         () {
           expect(ad.toFirestoreObject(), {
-            Ads.title: '<title>',
-            Ads.description: '<description>',
-            Ads.price: 42,
-            Ads.uploader: {
-              AdUploader.id: '<uid>',
-              AdUploader.name: '<name>',
-              AdUploader.image: '<image_url>',
+            fb.Ad.title: '<title>',
+            fb.Ad.description: '<description>',
+            fb.Ad.price: 42,
+            fb.Ad.uploader: {
+              fb.AdUploader.id: '<uid>',
+              fb.AdUploader.name: '<name>',
+              fb.AdUploader.image: '<image_url>',
             },
-            Ads.dates: {
-              DateRange.startDate: DateTime(2020, 12, 1),
-              DateRange.endDate: DateTime(2020, 12, 24),
+            fb.Ad.dates: {
+              fb.DateRange.startDate: DateTime(2020, 12, 1),
+              fb.DateRange.endDate: DateTime(2020, 12, 24),
             },
-            Ads.type: 'FIND',
-            Ads.complete: true,
+            fb.Ad.type: 'FIND',
+            fb.Ad.complete: true,
           });
         },
       );
@@ -86,17 +86,17 @@ void main() {
         'Ad to Firestore object',
         () {
           expect(ad.toFirestoreObject(), {
-            Ads.title: '<title>',
-            Ads.description: '<description>',
-            Ads.price: 42,
-            Ads.images: ['<image_url1>', '<image_url2>'],
-            Ads.uploader: {
-              AdUploader.id: '<uid>',
-              AdUploader.name: '<name>',
-              AdUploader.image: '<image_url3>',
+            fb.Ad.title: '<title>',
+            fb.Ad.description: '<description>',
+            fb.Ad.price: 42,
+            fb.Ad.images: ['<image_url1>', '<image_url2>'],
+            fb.Ad.uploader: {
+              fb.AdUploader.id: '<uid>',
+              fb.AdUploader.name: '<name>',
+              fb.AdUploader.image: '<image_url3>',
             },
-            Ads.type: 'LIST',
-            Ads.complete: true,
+            fb.Ad.type: 'LIST',
+            fb.Ad.complete: true,
           });
         },
       );
