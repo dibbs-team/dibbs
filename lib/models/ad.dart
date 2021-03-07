@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:equatable/equatable.dart';
 
-import '../utils/firestore_values.dart';
+import '../utils/firestore_values.dart' as fs;
 import '../utils/ad_types.dart';
 
 abstract class Ad extends Equatable {
@@ -39,29 +39,29 @@ abstract class Ad extends Equatable {
   /// Creates an instance from a DocumentSnapshot from Firestore.
   factory Ad.fromFirestoreObject(DocumentSnapshot snapshot) {
     final data = snapshot.data();
-    final type = EnumToString.fromString(AdType.values, data[Ads.type]);
+    final type = EnumToString.fromString(AdType.values, data[fs.Ad.type]);
 
     switch (type) {
       case AdType.FIND:
         return FindAd(
           id: snapshot.id,
-          title: data[Ads.title],
-          description: data[Ads.description],
-          price: data[Ads.price],
-          uploader: Uploader.fromFirestoreObject(data[Ads.uploader]),
+          title: data[fs.Ad.title],
+          description: data[fs.Ad.description],
+          price: data[fs.Ad.price],
+          uploader: Uploader.fromFirestoreObject(data[fs.Ad.uploader]),
           dates: DateTimeRange(
-            start: data[Ads.dates][DateRange.startDate].toDate(),
-            end: data[Ads.dates][DateRange.endDate].toDate(),
+            start: data[fs.Ad.dates][fs.DateRange.startDate].toDate(),
+            end: data[fs.Ad.dates][fs.DateRange.endDate].toDate(),
           ),
         );
       case AdType.LIST:
         return ListAd(
           id: snapshot.id,
-          title: data[Ads.title],
-          description: data[Ads.description],
-          price: data[Ads.price],
-          uploader: Uploader.fromFirestoreObject(data[Ads.uploader]),
-          images: data[Ads.images],
+          title: data[fs.Ad.title],
+          description: data[fs.Ad.description],
+          price: data[fs.Ad.price],
+          uploader: Uploader.fromFirestoreObject(data[fs.Ad.uploader]),
+          images: data[fs.Ad.images],
         );
       default:
         throw TypeError();
@@ -94,16 +94,16 @@ class FindAd extends Ad {
   @override
   Map<String, dynamic> toFirestoreObject() {
     return {
-      Ads.title: title,
-      Ads.description: description,
-      Ads.price: price,
-      Ads.uploader: uploader.toFirestoreObject(),
-      Ads.dates: {
-        DateRange.startDate: dates.start,
-        DateRange.endDate: dates.end,
+      fs.Ad.title: title,
+      fs.Ad.description: description,
+      fs.Ad.price: price,
+      fs.Ad.uploader: uploader.toFirestoreObject(),
+      fs.Ad.dates: {
+        fs.DateRange.startDate: dates.start,
+        fs.DateRange.endDate: dates.end,
       },
-      Ads.type: EnumToString.convertToString(AdType.FIND),
-      Ads.complete: true,
+      fs.Ad.type: EnumToString.convertToString(AdType.FIND),
+      fs.Ad.complete: true,
     };
   }
 }
@@ -133,13 +133,13 @@ class ListAd extends Ad {
   @override
   Map<String, dynamic> toFirestoreObject() {
     return {
-      Ads.title: title,
-      Ads.description: description,
-      Ads.price: price,
-      Ads.uploader: uploader.toFirestoreObject(),
-      Ads.images: images,
-      Ads.type: EnumToString.convertToString(AdType.LIST),
-      Ads.complete: true,
+      fs.Ad.title: title,
+      fs.Ad.description: description,
+      fs.Ad.price: price,
+      fs.Ad.uploader: uploader.toFirestoreObject(),
+      fs.Ad.images: images,
+      fs.Ad.type: EnumToString.convertToString(AdType.LIST),
+      fs.Ad.complete: true,
     };
   }
 }
@@ -165,16 +165,16 @@ class Uploader extends Equatable {
 
   /// Creates an instance from a Firestore object.
   Uploader.fromFirestoreObject(Map<String, dynamic> obj)
-      : this.id = obj[AdUploader.id],
-        this.name = obj[AdUploader.name],
-        this.image = obj[AdUploader.image];
+      : this.id = obj[fs.AdUploader.id],
+        this.name = obj[fs.AdUploader.name],
+        this.image = obj[fs.AdUploader.image];
 
   /// Returns a map representation suitable for Firestore.
   Map<String, dynamic> toFirestoreObject() {
     return {
-      AdUploader.id: id,
-      AdUploader.name: name,
-      AdUploader.image: image,
+      fs.AdUploader.id: id,
+      fs.AdUploader.name: name,
+      fs.AdUploader.image: image,
     };
   }
 }

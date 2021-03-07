@@ -12,7 +12,7 @@ class Communities {
   static const name = 'name';
 }
 
-class Users {
+class User {
   static const name = 'name';
   static const email = 'email';
   static const phone = 'phone_number';
@@ -25,7 +25,7 @@ class UserCommunities {
   static const name = 'name';
 }
 
-class Ads {
+class Ad {
   static const title = 'title';
   static const description = 'descrition';
   static const price = 'price';

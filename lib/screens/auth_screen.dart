@@ -6,7 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../widgets/auth/login_button.dart';
 import '../lang/my_localizations.dart';
 import '../utils/auth_services.dart';
-import '../utils/firestore_values.dart';
+import '../utils/firestore_values.dart' as fs;
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -35,12 +35,15 @@ class _AuthScreenState extends State<AuthScreen> {
 
   /// Saves user information to Firestore.
   Future<void> _saveUser(auth.User user) async {
-    FirebaseFirestore.instance.collection(Collection.users).doc(user.uid).set(
+    FirebaseFirestore.instance
+        .collection(fs.Collection.users)
+        .doc(user.uid)
+        .set(
       {
-        Users.name: user.displayName,
-        Users.email: user.email,
-        Users.image: user.photoURL,
-        Users.phone: user.phoneNumber,
+        fs.User.name: user.displayName,
+        fs.User.email: user.email,
+        fs.User.image: user.photoURL,
+        fs.User.phone: user.phoneNumber,
       },
       SetOptions(merge: true),
     );
