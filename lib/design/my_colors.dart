@@ -13,6 +13,7 @@ class MyColors {
   static const raspberry = Color(0xffF7675A);
   static const complementaryRaspberry = Color(0xffFFC5BF);
   static const grey = Color(0xffD1CFCF);
+  static const darkGrey = Color(0xff808080);
   static const lightGrey = Color(0xffEBEBEB);
   static const errorRed = raspberry;
 }

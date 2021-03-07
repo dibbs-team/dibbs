@@ -2,6 +2,7 @@ class Collection {
   static const communities = 'communities';
   static const users = 'users';
   static const ads = 'ads';
+  static const notifications = 'notifications';
 }
 
 class Storage {
@@ -61,4 +62,12 @@ class AdStub {
   static const title = 'title';
   static const type = 'ad_type';
   static const image = 'image_urls';
+}
+
+class Notification {
+  static const fromUser = 'from_user';
+  static const image = 'image';
+  static const time = 'time';
+  static const type = 'type';
+  static const userId = 'user_id';
 }
