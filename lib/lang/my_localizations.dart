@@ -440,4 +440,38 @@ class MyLocalizations {
         desc: 'Text for preseting name of uploader of find ad.',
         examples: const {'uploader': 'Peter Pan'},
       );
+
+  String get noNotifications => Intl.message(
+        'You\'re all caught up',
+        name: 'noNotifications',
+        desc: 'Shown on notifications screen when there are no notifications.',
+      );
+
+  String get confirmation => Intl.message(
+        'Confirmation',
+        name: 'confirmation',
+        desc: 'Title for confirmation notifications.',
+      );
+
+  String get request => Intl.message(
+        'Request',
+        name: 'request',
+        desc: 'Title for request notifications.',
+      );
+
+  String confirmationMessage(String user) => Intl.message(
+        '$user accepted your dibb.',
+        name: 'confirmationMessage',
+        args: [user],
+        desc: 'Notification message for confirmation.',
+        examples: const {'user': 'Peter Pan'},
+      );
+
+  String requestMessage(String user) => Intl.message(
+        '$user wants to rent your item!',
+        name: 'requestMessage',
+        args: [user],
+        desc: 'Notification message for request.',
+        examples: const {'user': 'Peter Pan'},
+      );
 }
