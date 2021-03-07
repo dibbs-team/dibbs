@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 // import 'package:cloud_firestore_mocks/cloud_firestore_mocks.dart';
 
-import 'package:dibbs/models/ad.dart';
-import 'package:dibbs/utils/firestore_values.dart' as fb;
+import '../../lib/models/user_stub.dart';
+import '../../lib/models/ad.dart';
+import '../../lib/utils/firestore_values.dart' as fs;
 
 void main() {
   group(
@@ -18,7 +19,7 @@ void main() {
           start: DateTime(2020, 12, 1),
           end: DateTime(2020, 12, 24),
         ),
-        uploader: Uploader(
+        uploader: UserStub(
           id: '<uid>',
           name: '<name>',
           image: '<image_url>',
@@ -29,20 +30,20 @@ void main() {
         'Ad to Firestore object',
         () {
           expect(ad.toFirestoreObject(), {
-            fb.Ad.title: '<title>',
-            fb.Ad.description: '<description>',
-            fb.Ad.price: 42,
-            fb.Ad.uploader: {
-              fb.AdUploader.id: '<uid>',
-              fb.AdUploader.name: '<name>',
-              fb.AdUploader.image: '<image_url>',
+            fs.Ad.title: '<title>',
+            fs.Ad.description: '<description>',
+            fs.Ad.price: 42,
+            fs.Ad.uploader: {
+              fs.UserStub.id: '<uid>',
+              fs.UserStub.name: '<name>',
+              fs.UserStub.image: '<image_url>',
             },
-            fb.Ad.dates: {
-              fb.DateRange.startDate: DateTime(2020, 12, 1),
-              fb.DateRange.endDate: DateTime(2020, 12, 24),
+            fs.Ad.dates: {
+              fs.DateRange.startDate: DateTime(2020, 12, 1),
+              fs.DateRange.endDate: DateTime(2020, 12, 24),
             },
-            fb.Ad.type: 'FIND',
-            fb.Ad.complete: true,
+            fs.Ad.type: 'FIND',
+            fs.Ad.complete: true,
           });
         },
       );
@@ -75,7 +76,7 @@ void main() {
         description: '<description>',
         price: 42,
         images: ['<image_url1>', '<image_url2>'],
-        uploader: Uploader(
+        uploader: UserStub(
           id: '<uid>',
           name: '<name>',
           image: '<image_url3>',
@@ -86,17 +87,17 @@ void main() {
         'Ad to Firestore object',
         () {
           expect(ad.toFirestoreObject(), {
-            fb.Ad.title: '<title>',
-            fb.Ad.description: '<description>',
-            fb.Ad.price: 42,
-            fb.Ad.images: ['<image_url1>', '<image_url2>'],
-            fb.Ad.uploader: {
-              fb.AdUploader.id: '<uid>',
-              fb.AdUploader.name: '<name>',
-              fb.AdUploader.image: '<image_url3>',
+            fs.Ad.title: '<title>',
+            fs.Ad.description: '<description>',
+            fs.Ad.price: 42,
+            fs.Ad.images: ['<image_url1>', '<image_url2>'],
+            fs.Ad.uploader: {
+              fs.UserStub.id: '<uid>',
+              fs.UserStub.name: '<name>',
+              fs.UserStub.image: '<image_url3>',
             },
-            fb.Ad.type: 'LIST',
-            fb.Ad.complete: true,
+            fs.Ad.type: 'LIST',
+            fs.Ad.complete: true,
           });
         },
       );

@@ -36,7 +36,7 @@ class Ad {
   static const complete = 'complete';
 }
 
-class AdUploader {
+class UserStub {
   static const id = 'id';
   static const name = 'name';
   static const image = 'profile_image_url';
@@ -45,4 +45,20 @@ class AdUploader {
 class DateRange {
   static const startDate = 'start_date';
   static const endDate = 'end_date';
+}
+
+class Booking {
+  static const id = 'id';
+  static const ad = 'ad';
+  static const dates = 'date_range';
+  static const uploader = 'uploader';
+  static const status = 'status';
+}
+
+class AdStub {
+  static const id = 'id';
+  static const uploader = 'uploader';
+  static const title = 'title';
+  static const type = 'ad_type';
+  static const image = 'image_urls';
 }
