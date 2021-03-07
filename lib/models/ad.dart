@@ -5,13 +5,14 @@ import 'package:equatable/equatable.dart';
 
 import '../utils/firestore_values.dart' as fs;
 import '../utils/ad_types.dart';
+import 'user_stub.dart';
 
 abstract class Ad extends Equatable {
   final String id;
   final String title;
   final String description;
   final int price;
-  final Uploader uploader;
+  final UserStub uploader;
   final AdType type;
 
   Ad({
@@ -48,7 +49,7 @@ abstract class Ad extends Equatable {
           title: data[fs.Ad.title],
           description: data[fs.Ad.description],
           price: data[fs.Ad.price],
-          uploader: Uploader.fromFirestoreObject(data[fs.Ad.uploader]),
+          uploader: UserStub.fromFirestoreObject(data[fs.Ad.uploader]),
           dates: DateTimeRange(
             start: data[fs.Ad.dates][fs.DateRange.startDate].toDate(),
             end: data[fs.Ad.dates][fs.DateRange.endDate].toDate(),
@@ -60,7 +61,7 @@ abstract class Ad extends Equatable {
           title: data[fs.Ad.title],
           description: data[fs.Ad.description],
           price: data[fs.Ad.price],
-          uploader: Uploader.fromFirestoreObject(data[fs.Ad.uploader]),
+          uploader: UserStub.fromFirestoreObject(data[fs.Ad.uploader]),
           images: data[fs.Ad.images],
         );
       default:
@@ -140,41 +141,6 @@ class ListAd extends Ad {
       fs.Ad.images: images,
       fs.Ad.type: EnumToString.convertToString(AdType.LIST),
       fs.Ad.complete: true,
-    };
-  }
-}
-
-/// Representation of a user that uploaded an ad.
-class Uploader extends Equatable {
-  final String id;
-  final String name;
-  final String image;
-
-  @override
-  List<Object> get props => [
-        id,
-        name,
-        image,
-      ];
-
-  Uploader({
-    @required this.id,
-    @required this.name,
-    @required this.image,
-  });
-
-  /// Creates an instance from a Firestore object.
-  Uploader.fromFirestoreObject(Map<String, dynamic> obj)
-      : this.id = obj[fs.AdUploader.id],
-        this.name = obj[fs.AdUploader.name],
-        this.image = obj[fs.AdUploader.image];
-
-  /// Returns a map representation suitable for Firestore.
-  Map<String, dynamic> toFirestoreObject() {
-    return {
-      fs.AdUploader.id: id,
-      fs.AdUploader.name: name,
-      fs.AdUploader.image: image,
     };
   }
 }

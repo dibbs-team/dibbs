@@ -151,7 +151,7 @@ class ProfileScreen extends StatelessWidget {
                 query: FirebaseFirestore.instance
                     .collection(fs.Collection.ads)
                     .where(
-                      '${fs.Ad.uploader}.${fs.AdUploader.id}',
+                      '${fs.Ad.uploader}.${fs.UserStub.id}',
                       isEqualTo: user.uid,
                     )
                     .where(

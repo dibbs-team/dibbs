@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:logger/logger.dart';
 
+import '../models/user_stub.dart';
 import '../models/ad.dart';
 import '../lang/my_localizations.dart';
 import '../widgets/upload/step_container.dart';
@@ -117,7 +118,7 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
   Future<bool> _uploadAd() async {
     // Get information about uploader.
     final user = auth.FirebaseAuth.instance.currentUser;
-    final uploader = Uploader(
+    final uploader = UserStub(
       id: user.uid,
       name: user.displayName,
       image: user.photoURL,
