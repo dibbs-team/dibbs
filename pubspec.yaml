@@ -36,7 +36,7 @@ dependencies:
   equatable: ^2.0.0
   reorderables: ^0.3.2
   paginate_firestore: ^0.3.1
-  timeago: ^3.0.1
+  timeago: ^3.0.2
 
   # Debugging
   logger: ^0.9.4
