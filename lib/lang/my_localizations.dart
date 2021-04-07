@@ -69,7 +69,7 @@ class MyLocalizations {
 
   String get rentingRules => Intl.message(
         'Renting rules',
-        name: 'rentinRules',
+        name: 'rentingRules',
         desc: 'Renting rules title.',
       );
 
@@ -82,7 +82,7 @@ class MyLocalizations {
   String get rentingRulesBody => Intl.message(
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
         'eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        name: 'rentinRulesBody',
+        name: 'rentingRulesBody',
         desc: 'Renting rules text.',
       );
 
@@ -154,10 +154,10 @@ class MyLocalizations {
         desc: 'General error occured text. Shown in for example a snackbar.',
       );
 
-  String uploadStep({
-    @required int current,
-    @required int total,
-  }) =>
+  String uploadStep(
+    int current,
+    int total,
+  ) =>
       Intl.message(
         'Step $current/$total',
         name: 'uploadStep',
@@ -256,13 +256,13 @@ class MyLocalizations {
 
   String get findAdDescriptionHint => Intl.message(
         'Describe what you are looking for',
-        name: 'findAdDescriptionhint',
+        name: 'findAdDescriptionHint',
         desc: 'Hint on description input when uploading a find ad.',
       );
 
   String get findAdPriceHint => Intl.message(
         '0 SEK',
-        name: 'findAdPriceTitle',
+        name: 'findAdPriceHint',
         desc: 'Hint on price input when uploading a find ad.',
       );
 
@@ -337,6 +337,8 @@ class MyLocalizations {
         name: 'listAdImagesInfo',
         desc:
             'Additional info to show when uploading images when creating a list ad.',
+        args: [nrPhotos],
+        examples: const {'nrPhotos': 4},
       );
 
   String get listAdDescriptionHint => Intl.message(
