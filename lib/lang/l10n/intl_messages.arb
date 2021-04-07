@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-11-21T14:38:24.264630",
+  "@@last_modified": "2021-04-07T18:18:25.166008",
   "title": "Dibbs",
   "@title": {
     "description": "App title",
@@ -12,7 +12,19 @@
     "type": "text",
     "placeholders": {}
   },
-  "uploadScreenTitle": "Upload product",
+  "bookingsScreenTitle": "Bookings",
+  "@bookingsScreenTitle": {
+    "description": "Name of bookings screen.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "notificationsScreenTitle": "Notifications",
+  "@notificationsScreenTitle": {
+    "description": "Name of notifications screen.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "uploadScreenTitle": "Upload ad",
   "@uploadScreenTitle": {
     "description": "Name of upload screen.",
     "type": "text",
@@ -24,9 +36,39 @@
     "type": "text",
     "placeholders": {}
   },
+  "rentingRules": "Renting rules",
+  "@rentingRules": {
+    "description": "Renting rules title.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancellationTerms": "Cancellation terms",
+  "@cancellationTerms": {
+    "description": "Cancellation terms title.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "rentingRulesBody": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "@rentingRulesBody": {
+    "description": "Renting rules text.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancellationTermsBody": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "@cancellationTermsBody": {
+    "description": "Cancellation terms text.",
+    "type": "text",
+    "placeholders": {}
+  },
   "description": "Description",
   "@description": {
     "description": "Description title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "formTitle": "Title",
+  "@formTitle": {
+    "description": "Title when used in forms.",
     "type": "text",
     "placeholders": {}
   },
@@ -52,13 +94,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "successfulUpload": "Product upload was successful.",
+  "successfulUpload": "Ad upload was successful.",
   "@successfulUpload": {
     "description": "Shown in snackbar after upload was successful.",
     "type": "text",
     "placeholders": {}
   },
-  "unsuccessfulUpload": "Product upload was unsuccessful.",
+  "unsuccessfulUpload": "Ad upload was unsuccessful.",
   "@unsuccessfulUpload": {
     "description": "Shown in snackbar after upload was unsuccessful.",
     "type": "text",
@@ -66,13 +108,13 @@
   },
   "nextStep": "Next",
   "@nextStep": {
-    "description": "Text on button to go to next step when uploading a product.",
+    "description": "Text on button to go to next step when uploading an ad.",
     "type": "text",
     "placeholders": {}
   },
-  "uploadProduct": "Publish",
-  "@uploadProduct": {
-    "description": "Text on button to upload a product.",
+  "uploadAd": "Publish",
+  "@uploadAd": {
+    "description": "Text on button to upload a ad.",
     "type": "text",
     "placeholders": {}
   },
@@ -82,42 +124,15 @@
     "type": "text",
     "placeholders": {}
   },
-  "picturesStepTitle": "{step}. Upload pictures",
-  "@picturesStepTitle": {
-    "description": "Title on pictures step when uploading product.",
+  "uploadStep": "Step {current}/{total}",
+  "@uploadStep": {
+    "description": "AppBar text on when uploading ad.",
     "type": "text",
     "placeholders": {
-      "step": {
-        "example": 1
-      }
-    }
-  },
-  "descriptionStepTitle": "{step}. Describe your item",
-  "@descriptionStepTitle": {
-    "description": "Title on description step when uploading product.",
-    "type": "text",
-    "placeholders": {
-      "step": {
+      "current": {
         "example": 2
-      }
-    }
-  },
-  "rulesStepTitle": "{step}. Set your rules",
-  "@rulesStepTitle": {
-    "description": "Title on rules step when uploading product.",
-    "type": "text",
-    "placeholders": {
-      "step": {
-        "example": 3
-      }
-    }
-  },
-  "paymentStepTitle": "{step}. Set up payment",
-  "@paymentStepTitle": {
-    "description": "Title on payment step when uploading product.",
-    "type": "text",
-    "placeholders": {
-      "step": {
+      },
+      "total": {
         "example": 4
       }
     }
@@ -127,5 +142,319 @@
     "description": "Sign out, showed on button for signing out.",
     "type": "text",
     "placeholders": {}
+  },
+  "closeInformation": "Let's start!",
+  "@closeInformation": {
+    "description": "Text on button on information screen.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "informationWelcome": "Welcome {name}!",
+  "@informationWelcome": {
+    "description": "Welcome text on information screen.",
+    "type": "text",
+    "placeholders": {
+      "name": {
+        "example": "Jane"
+      }
+    }
+  },
+  "chooseUploadTypeTitle": "Upload ad",
+  "@chooseUploadTypeTitle": {
+    "description": "AppBar title when choosing upload type.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "chooseUploadTypeHint": "I want to...",
+  "@chooseUploadTypeHint": {
+    "description": "Hint when choosing upload type.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "uploadTypeFind": "Find",
+  "@uploadTypeFind": {
+    "description": "Name of find when choosing type",
+    "type": "text",
+    "placeholders": {}
+  },
+  "uploadTypeList": "Rent out",
+  "@uploadTypeList": {
+    "description": "Name of list ad when choosing type",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addCommunityInstruction": "Add community code",
+  "@addCommunityInstruction": {
+    "description": "Instructions for adding a community code.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addCommunityInputHint": "Code",
+  "@addCommunityInputHint": {
+    "description": "Hint for input field for adding a community code.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueToCommunity": "Continue to {name}",
+  "@continueToCommunity": {
+    "description": "Text on button for finishing adding a community.",
+    "type": "text",
+    "placeholders": {
+      "name": {
+        "example": "Dibbs Team"
+      }
+    }
+  },
+  "noCommunityFound": "Sorry, we can not find that community. Make sure you have the right code.",
+  "@noCommunityFound": {
+    "description": "Text on add community screen when no community was found.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "firebaseError": "Something went wrong. Please check your internet connection",
+  "@firebaseError": {
+    "description": "Showed in a snackbar when a call to firebase gives an error.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "findAdTitle": "Describe the item you are looking for",
+  "@findAdTitle": {
+    "description": "Title screen for form input when uploading a find ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "findAdDescriptionTitle": "Description",
+  "@findAdDescriptionTitle": {
+    "description": "Title on description input when uploading a find ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "findAdDescriptionHint": "Describe what you are looking for",
+  "@findAdDescriptionHint": {
+    "description": "Hint on description input when uploading a find ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "findAdPriceHint": "0 SEK",
+  "@findAdPriceHint": {
+    "description": "Hint on price input when uploading a find ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "findAdPriceTitle": "Maximum price",
+  "@findAdPriceTitle": {
+    "description": "Title on price input when uploading a find ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "findAdDateTitle": "Dates",
+  "@findAdDateTitle": {
+    "description": "Title on dates input when uploading a find ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "findAdTermsTitle": "Accept terms and conditions",
+  "@findAdTermsTitle": {
+    "description": "Title for accepting terms when uploading a find ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "adInputContactNr": "Add contact number",
+  "@adInputContactNr": {
+    "description": "Title above phone number input",
+    "type": "text",
+    "placeholders": {}
+  },
+  "adInputPhoneTitle": "Phone Number",
+  "@adInputPhoneTitle": {
+    "description": "Title on phone input when uploading an ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "adInputPhoneHint": "070 123 45 67",
+  "@adInputPhoneHint": {
+    "description": "Hint on phone input when uploading an ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "adInputPhoneInfo": "Your phone number will only be visible upon accepted booking",
+  "@adInputPhoneInfo": {
+    "description": "More information about phone input when uploading an ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "longTemp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "@longTemp": {
+    "description": "Longer temporary text.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "datePickerHelp": "Select the dates you are interested in",
+  "@datePickerHelp": {
+    "description": "Instrucitons date picker.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "listAdImagesTitle": "Upload pictures",
+  "@listAdImagesTitle": {
+    "description": "Title for uploading images when creating a list ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "listAdImagesInfo": "Photos {nrPhotos}/6. Add your main picture first. Add more photos to show different angles or marks",
+  "@listAdImagesInfo": {
+    "description": "Additional info to show when uploading images when creating a list ad.",
+    "type": "text",
+    "placeholders": {
+      "nrPhotos": {
+        "example": 4
+      }
+    }
+  },
+  "listAdDescriptionHint": "Describe your item",
+  "@listAdDescriptionHint": {
+    "description": "Hint on description input when uploading a list ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "listAdTitle": "Describe your item",
+  "@listAdTitle": {
+    "description": "Title of form when uploading a list ad",
+    "type": "text",
+    "placeholders": {}
+  },
+  "listAdDescriptionTitle": "Description",
+  "@listAdDescriptionTitle": {
+    "description": "Title on description input when uploading a list ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "listAdPriceTitle": "Price per day",
+  "@listAdPriceTitle": {
+    "description": "Title on price input when uploading a list ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "listAdPriceHint": "0 SEK",
+  "@listAdPriceHint": {
+    "description": "Hint on price input when uploading a list ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "listAdPaymentTitle": "Set up payment",
+  "@listAdPaymentTitle": {
+    "description": "Title on payment input when uploading a list ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "camera": "Camera",
+  "@camera": {
+    "description": "Button text for uploading an image using the camera.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "gallery": "Gallery",
+  "@gallery": {
+    "description": "Button text for uploading an image from the gallery.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noAds": "Sorry, we could not find any ads",
+  "@noAds": {
+    "description": "Text shown when there are no ads in the feed screen.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dibbListAd": "Dibb this item",
+  "@dibbListAd": {
+    "description": "Text shown on button for renting an item.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dibbFindAd": "I have this item",
+  "@dibbFindAd": {
+    "description": "Text shown on button for responding to a find ad.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "adPrice": "{price} SEK/day",
+  "@adPrice": {
+    "description": "Price in ad detail.",
+    "type": "text",
+    "placeholders": {
+      "price": {
+        "example": 99
+      }
+    }
+  },
+  "userListings": "Your listings",
+  "@userListings": {
+    "description": "Text shown on profile screen over the users listed ads.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "paymentSettings": "Payment settings",
+  "@paymentSettings": {
+    "description": "Open payment settings, shown on button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "listAdUploaderName": "Rented out by {uploader}",
+  "@listAdUploaderName": {
+    "description": "Text for preseting name of uploader of list ad.",
+    "type": "text",
+    "placeholders": {
+      "uploader": {
+        "example": "Peter Pan"
+      }
+    }
+  },
+  "findAdUploaderName": "Posted by {uploader}",
+  "@findAdUploaderName": {
+    "description": "Text for preseting name of uploader of find ad.",
+    "type": "text",
+    "placeholders": {
+      "uploader": {
+        "example": "Peter Pan"
+      }
+    }
+  },
+  "noNotifications": "You're all caught up",
+  "@noNotifications": {
+    "description": "Shown on notifications screen when there are no notifications.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmation": "Confirmation",
+  "@confirmation": {
+    "description": "Title for confirmation notifications.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "request": "Request",
+  "@request": {
+    "description": "Title for request notifications.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmationMessage": "{user} accepted your dibb.",
+  "@confirmationMessage": {
+    "description": "Notification message for confirmation.",
+    "type": "text",
+    "placeholders": {
+      "user": {
+        "example": "Peter Pan"
+      }
+    }
+  },
+  "requestMessage": "{user} wants to rent your item!",
+  "@requestMessage": {
+    "description": "Notification message for request.",
+    "type": "text",
+    "placeholders": {
+      "user": {
+        "example": "Peter Pan"
+      }
+    }
   }
 }

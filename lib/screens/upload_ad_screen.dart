@@ -207,8 +207,8 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
             _currentIndex == 0
                 ? l10n.chooseUploadTypeTitle
                 : l10n.uploadStep(
-                    current: _currentIndex,
-                    total: _steps.length,
+                    _currentIndex,
+                    _steps.length,
                   ),
           ),
           actions: [
