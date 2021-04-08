@@ -5,7 +5,7 @@ import 'form_input_field.dart';
 import 'upload_step.dart';
 import '../../lang/my_localizations.dart';
 
-class AdUploaderForm extends UploadStep {
+class AdUploaderForm extends StatelessWidget implements UploadStep {
   final _formKey = GlobalKey<FormState>();
 
   @override

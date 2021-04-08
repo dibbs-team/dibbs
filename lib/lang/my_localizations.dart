@@ -476,4 +476,82 @@ class MyLocalizations {
         desc: 'Notification message for request.',
         examples: const {'user': 'Peter Pan'},
       );
+
+  String get listBookingDateTitle => Intl.message(
+        'Select date',
+        name: 'listBookingDateTitle',
+        desc: 'Title when selecting date for a booking of a listAd',
+      );
+
+  String get listBookingDateInfo => Intl.message(
+        'Add dates to see exact price',
+        name: 'listBookingDateInfo',
+        desc: 'info under title when selecting dates for a booking of a listAd',
+      );
+
+  String get listBookingDatesFieldTitle => Intl.message(
+        'Pick-up - Drop-of',
+        name: 'listBookingDatesFieldTitle',
+        desc:
+            'Title over form field when selecting dates for a booking of a listAd',
+      );
+
+  String get priceTitle => Intl.message(
+        'Price',
+        name: 'priceTitle',
+        desc: 'Used as title for booking',
+      );
+
+  String get nrOfDays => Intl.message(
+        'Number of days',
+        name: 'nrOfDays',
+        desc: 'Used when making a booking',
+      );
+
+  String get total => Intl.message(
+        'Total',
+        name: 'total',
+        desc: 'Used when making a booking',
+      );
+
+  String price(int price) => Intl.message(
+        '$price SEK',
+        name: 'price',
+        args: [price],
+        desc: 'Add the type of currency to a number',
+      );
+
+  String get confirmRequest => Intl.message(
+        'Confirm request',
+        name: 'confirmRequest',
+        desc: 'Used when making a booking',
+      );
+
+  String get finish => Intl.message(
+        'Finish',
+        name: 'finish',
+        desc: 'Displayed on button when booking an Ad',
+      );
+
+  String get bookingCompletedTitle => Intl.message(
+        'All done!',
+        name: 'bookingCompletedTitle',
+        desc: 'Displayed when booking an ad is completed.',
+      );
+
+  String requestSentConfirmation(String user) => Intl.message(
+        'Your request has been sent to $user',
+        name: 'requestSentConfirmation',
+        args: [user],
+        desc: 'Confirmation that a request has been sent when booking an ad.',
+        examples: const {'user': 'Peter Pan'},
+      );
+
+  String get requestSentInfo => Intl.message(
+        'We will notify you when the request has been processed, and is ready '
+        'for pick-up. Meanwhile give yourself a pat on the back for '
+        'contributing to a more sustainable society!',
+        name: 'requestSentInfo',
+        desc: 'Information displayed when booking an ad is completed.',
+      );
 }

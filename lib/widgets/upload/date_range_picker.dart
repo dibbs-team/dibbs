@@ -16,6 +16,10 @@ class DateRangePicker extends StatelessWidget {
   DateTimeRange get dates =>
       _key.currentState?.selectedDates ?? _datesWhenDisposed;
 
+  Function notifyDatesChanged;
+
+  DateRangePicker({this.notifyDatesChanged});
+
   @override
   Widget build(BuildContext context) {
     return _DateRangePickerImpl(
@@ -23,16 +27,19 @@ class DateRangePicker extends StatelessWidget {
       saveDatesOnDispose: (dates) {
         _datesWhenDisposed = dates;
       },
+      notifyDatesChanged: notifyDatesChanged,
     );
   }
 }
 
 class _DateRangePickerImpl extends StatefulWidget {
   final void Function(DateTimeRange) saveDatesOnDispose;
+  final Function notifyDatesChanged;
 
   _DateRangePickerImpl({
     @required this.saveDatesOnDispose,
     @required key,
+    this.notifyDatesChanged,
   }) : super(key: key);
 
   @override
@@ -40,10 +47,17 @@ class _DateRangePickerImpl extends StatefulWidget {
 }
 
 class _DateRangePickerImplState extends State<_DateRangePickerImpl> {
-  DateTimeRange selectedDates = DateTimeRange(
+  DateTimeRange _selectedDates = DateTimeRange(
     start: DateTime.now(),
     end: DateTime.now().add(Duration(days: 1)),
   );
+
+  DateTimeRange get selectedDates => _selectedDates;
+
+  set selectedDates(DateTimeRange selectedDates) {
+    _selectedDates = selectedDates;
+    widget?.notifyDatesChanged?.call();
+  }
 
   /// Let's the user select a date range and sets the state accordingly.
   Future<void> _selectDates(BuildContext ctx) async {

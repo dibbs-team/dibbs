@@ -52,9 +52,8 @@ void main() {
               fs.DateRange.startDate: DateTime(2020, 12, 1),
               fs.DateRange.endDate: DateTime(2020, 12, 24),
             },
-            fs.Booking.id: '<bid1>',
             fs.Booking.status: 'PENDING',
-            fs.Booking.uploader: {
+            fs.Booking.booker: {
               fs.UserStub.id: '<uid2>',
               fs.UserStub.name: '<name>',
               fs.UserStub.image: '<image_url1>',

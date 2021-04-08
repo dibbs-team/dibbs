@@ -16,17 +16,29 @@ class TabScreen extends StatefulWidget {
 class _TabScreenState extends State<TabScreen> {
   final _scaffoldKey = GlobalKey<ScaffoldState>(); //* For showing SnackBar.
   static const _uploadAdScreenIndex = 2;
+  static const _bookingsScreenIndex = 3;
   static const _profileScreenIndex = 4;
+
   var _selectedIndex = 0;
 
-  static final List<Widget> _tabs = <Widget>[
-    //! Modifying this list requires you to update index variables.
-    FeedScreen(),
-    NotificationsScreen(),
-    null, //* Instead of UploadAdScreen.
-    BookingsScreen(),
-    ProfileScreen(),
-  ];
+  List<Widget> _tabs;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabs = <Widget>[
+      //! Modifying this list requires you to update index variables.
+      FeedScreen(onReturnFromAdDetail: (bool bookingSuccessful) {
+        setState(() {
+          _selectedIndex = _bookingsScreenIndex;
+        });
+      }),
+      NotificationsScreen(),
+      null, //* Instead of UploadAdScreen.
+      BookingsScreen(),
+      ProfileScreen(),
+    ];
+  }
 
   /// Switches tab.
   void _onItemTapped(int index) async {

@@ -10,6 +10,10 @@ import '../models/ad.dart';
 import '../utils/firestore_values.dart' as fs;
 
 class FeedScreen extends StatefulWidget {
+  final Function onReturnFromAdDetail;
+
+  FeedScreen({this.onReturnFromAdDetail});
+
   @override
   _FeedScreenState createState() => _FeedScreenState();
 }
@@ -40,8 +44,10 @@ class _FeedScreenState extends State<FeedScreen> {
           padding: const EdgeInsets.symmetric(horizontal: spacing),
           child: PaginateFirestore(
             itemBuilderType: PaginateBuilderType.gridView,
-            itemBuilder: (index, ctx, documentSnapshot) =>
-                AdItem(Ad.fromFirestoreObject(documentSnapshot)),
+            itemBuilder: (index, ctx, documentSnapshot) => AdItem(
+              Ad.fromFirestoreObject(documentSnapshot),
+              onDetailClosed: widget.onReturnFromAdDetail,
+            ),
             query:
                 FirebaseFirestore.instance.collection(fs.Collection.ads).where(
                       fs.Ad.complete,
