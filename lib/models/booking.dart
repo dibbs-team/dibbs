@@ -68,14 +68,13 @@ class Booking extends Equatable {
   /// Returns a map representation suitable for Firestore.
   Map<String, dynamic> toFirestoreObject() {
     return {
-      fs.Booking.id: id,
       fs.Booking.dates: {
         fs.DateRange.startDate: dates.start,
         fs.DateRange.endDate: dates.end,
       },
       fs.Booking.ad: ad.toFirestoreObject(),
       fs.Booking.status: EnumToString.convertToString(status),
-      fs.Booking.uploader: uploader.toFirestoreObject(),
+      fs.Booking.booker: uploader.toFirestoreObject(),
     };
   }
 
@@ -92,7 +91,7 @@ class Booking extends Equatable {
       ),
       status: EnumToString.fromString(
           BookingStatus.values, data[fs.Booking.status]),
-      uploader: UserStub.fromFirestoreObject(data[fs.Booking.uploader]),
+      uploader: UserStub.fromFirestoreObject(data[fs.Booking.booker]),
     );
   }
 }

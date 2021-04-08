@@ -7,8 +7,9 @@ import '../../screens/ad_detail_screen.dart';
 
 class AdItem extends StatelessWidget {
   final Ad ad;
+  final Function onDetailClosed;
 
-  AdItem(this.ad);
+  AdItem(this.ad, {this.onDetailClosed});
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +56,16 @@ class AdItem extends StatelessWidget {
           ],
         ),
         onTap: () {
-          Navigator.of(context).pushNamed(
+          Navigator.of(context)
+              .pushNamed(
             AdDetailScreen.routeName,
             arguments: ad,
-          );
+          )
+              .then((bookingSuccessful) {
+            if (bookingSuccessful) {
+              onDetailClosed(bookingSuccessful);
+            }
+          });
         },
       ),
     );

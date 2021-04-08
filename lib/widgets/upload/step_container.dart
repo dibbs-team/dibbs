@@ -3,25 +3,22 @@ import 'package:tap_debouncer/tap_debouncer.dart';
 
 import '../../design/my_attributes.dart';
 import '../../design/my_colors.dart';
-import '../../lang/my_localizations.dart';
 
 class StepContainer extends StatelessWidget {
-  final int step;
-  final int totalSteps;
   final Future<void> Function() onButtonPressed;
   final Widget child;
 
+  /// The text to be displayed on the button that trigger the onButtonPressed callback
+  final String buttonText;
+
   const StepContainer({
-    @required this.step,
-    @required this.totalSteps,
+    @required this.buttonText,
     @required this.onButtonPressed,
     @required this.child,
   });
 
   @override
   Widget build(BuildContext context) {
-    final l10n = MyLocalizations.of(context);
-
     return Column(
       children: [
         Expanded(child: child),
@@ -38,7 +35,7 @@ class StepContainer extends StatelessWidget {
                     borderRadius: MyAttributes.borderRadiusTop),
               ),
               child: Text(
-                step == totalSteps ? l10n.uploadAd : l10n.nextStep,
+                buttonText,
               ),
               onPressed: onTap,
             ),

@@ -6,7 +6,7 @@ import 'upload_step.dart';
 import '../../utils/ad_types.dart';
 import '../../lang/my_localizations.dart';
 
-class ListAdDetailsForm extends UploadStep {
+class ListAdDetailsForm extends StatelessWidget implements UploadStep {
   final _formKey = GlobalKey<FormState>();
 
   // Handles to forms.

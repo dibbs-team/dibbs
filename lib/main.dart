@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'screens/book_list_ad_screen.dart';
 import 'screens/auth_screen.dart';
 import 'screens/loading_screen.dart';
 import 'screens/add_community_screen.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         AddCommunityScreen.routeName: (ctx) => AddCommunityScreen(),
         InformationScreen.routeName: (ctx) => InformationScreen(),
         AdDetailScreen.routeName: (ctx) => AdDetailScreen(),
+        BookListAdScreen.routeName: (ctx) => BookListAdScreen(),
       },
       theme: AppTheme().themedata,
     );

@@ -3,6 +3,7 @@ class Collection {
   static const users = 'users';
   static const ads = 'ads';
   static const notifications = 'notifications';
+  static const bookings = 'bookings';
 }
 
 class Storage {
@@ -52,7 +53,7 @@ class Booking {
   static const id = 'id';
   static const ad = 'ad';
   static const dates = 'date_range';
-  static const uploader = 'uploader';
+  static const booker = 'booker';
   static const status = 'status';
 }
 

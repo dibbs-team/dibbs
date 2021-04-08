@@ -226,8 +226,9 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
                 onSelectedList: _initListMode,
               )
             : StepContainer(
-                step: _currentIndex,
-                totalSteps: _steps.length,
+                buttonText: _currentIndex == _steps.length
+                    ? l10n.uploadAd
+                    : l10n.nextStep,
                 onButtonPressed: () async {
                   if (_currentStep.validate()) {
                     await _finishStep();

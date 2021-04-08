@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'book_list_ad_screen.dart';
 import '../models/ad.dart';
 import '../design/my_attributes.dart';
 import '../lang/my_localizations.dart';
@@ -87,7 +88,17 @@ class AdDetailScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            BookListAdScreen.routeName,
+            arguments: BookListAdScreenArguments(ad),
+          ).then((bookingSuccessful) {
+            if (bookingSuccessful) {
+              Navigator.of(context).pop(bookingSuccessful);
+            }
+          });
+        },
         child: Text(ad is ListAd ? l10n.dibbListAd : l10n.dibbFindAd),
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

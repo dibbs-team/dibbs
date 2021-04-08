@@ -7,7 +7,7 @@ import 'upload_step.dart';
 import 'image_sequence_picker/image_sequence_picker.dart';
 import '../../lang/my_localizations.dart';
 
-class ListAdImagesForm extends UploadStep {
+class ListAdImagesForm extends StatelessWidget implements UploadStep {
   final imageSequencePicker = ImageSequencePicker(
     imagesPerRow: 3,
     maxItems: 6,
