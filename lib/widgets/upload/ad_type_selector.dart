@@ -8,8 +8,8 @@ class AdTypeSelector extends StatelessWidget {
   final void Function() onSelectedList;
 
   AdTypeSelector({
-    this.onSelectedFind,
-    this.onSelectedList,
+    required this.onSelectedFind,
+    required this.onSelectedList,
   });
 
   @override

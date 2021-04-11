@@ -24,7 +24,7 @@ class NotificationsScreen extends StatelessWidget {
             models.Notification.fromFirestoreObject(documentSnapshot)),
         query: FirebaseFirestore.instance
             .collection(fs.Collection.notifications)
-            .where(fs.Notification.userId, isEqualTo: user.uid),
+            .where(fs.Notification.userId, isEqualTo: user!.uid),
         itemsPerPage: 10,
         emptyDisplay: NoNotifications(),
         isLive: true,

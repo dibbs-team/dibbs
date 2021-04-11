@@ -29,17 +29,17 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _storage = firebase_storage.FirebaseStorage.instance;
   var _currentIndex = 0;
-  List<UploadStep> _steps = [];
-  AdType type;
+  List<UploadStep?> _steps = [];
+  AdType? type;
 
   // Handles to forms.
-  AdUploaderForm adUploaderForm;
-  FindAdDetailsForm findAdDetailsForm;
-  ListAdImagesForm listAdImagesForm;
-  ListAdDetailsForm listAdDetailsForm;
-  ListAdPaymentForm listAdPaymentForm;
+  AdUploaderForm? adUploaderForm;
+  FindAdDetailsForm? findAdDetailsForm;
+  ListAdImagesForm? listAdImagesForm;
+  ListAdDetailsForm? listAdDetailsForm;
+  ListAdPaymentForm? listAdPaymentForm;
 
-  UploadStep get _currentStep =>
+  UploadStep? get _currentStep =>
       _currentIndex > 0 ? _steps[_currentIndex - 1] : null;
 
   void _initFindMode() {
@@ -89,8 +89,8 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
 
   // Uploads images to Firebase and returns corresponding URL references.
   Future<List<String>> _uploadImages({
-    @required List<File> images,
-    @required String adId,
+    required List<File> images,
+    required String adId,
   }) async {
     // Get reference to directory to save images in.
     final imageDirectoryRef =
@@ -117,29 +117,29 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
   /// Uploads an ad to Firestore. Returns whether upload was succesful.
   Future<bool> _uploadAd() async {
     // Get information about uploader.
-    final user = auth.FirebaseAuth.instance.currentUser;
+    final user = auth.FirebaseAuth.instance.currentUser!;
     final uploader = UserStub(
       id: user.uid,
-      name: user.displayName,
-      image: user.photoURL,
+      name: user.displayName!,
+      image: user.photoURL!,
     );
 
     if (type == AdType.FIND) {
       try {
         // Upload ad.
         await _firestore.collection(fs.Collection.ads).add(FindAd(
-              title: findAdDetailsForm.title,
-              description: findAdDetailsForm.description,
-              price: findAdDetailsForm.price,
+              title: findAdDetailsForm!.title,
+              description: findAdDetailsForm!.description,
+              price: findAdDetailsForm!.price,
               uploader: uploader,
-              dates: findAdDetailsForm.dates,
+              dates: findAdDetailsForm!.dates,
             ).toFirestoreObject());
         return true;
       } catch (e) {
         return false;
       }
     } else if (type == AdType.LIST) {
-      DocumentReference adRef;
+      DocumentReference? adRef;
       try {
         // Create an ad to get a reference to a document.
         adRef = await _firestore
@@ -148,15 +148,15 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
 
         // Upload images to Firebase Storage.
         final images = await _uploadImages(
-          images: listAdImagesForm.images,
+          images: listAdImagesForm!.images,
           adId: adRef.id,
         );
 
         // Upload ad.
         await adRef.set(ListAd(
-          title: listAdDetailsForm.title,
-          description: listAdDetailsForm.description,
-          price: listAdDetailsForm.price,
+          title: listAdDetailsForm!.title,
+          description: listAdDetailsForm!.description,
+          price: listAdDetailsForm!.price,
           images: images,
           uploader: uploader,
         ).toFirestoreObject());
@@ -230,7 +230,7 @@ class _UploadAdScreenState extends State<UploadAdScreen> {
                     ? l10n.uploadAd
                     : l10n.nextStep,
                 onButtonPressed: () async {
-                  if (_currentStep.validate()) {
+                  if (_currentStep!.validate()) {
                     await _finishStep();
                   }
                 },

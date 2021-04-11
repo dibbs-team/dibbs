@@ -39,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m9(current, total) => "Step ${current}/${total}";
 
-  final messages = _notInlinedMessages(_notInlinedMessages);
+  final Map<String, dynamic> messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "adInputContactNr" : MessageLookupByLibrary.simpleMessage("Add contact number"),
     "adInputPhoneHint" : MessageLookupByLibrary.simpleMessage("070 123 45 67"),

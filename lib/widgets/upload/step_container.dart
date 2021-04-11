@@ -12,9 +12,9 @@ class StepContainer extends StatelessWidget {
   final String buttonText;
 
   const StepContainer({
-    @required this.buttonText,
-    @required this.onButtonPressed,
-    @required this.child,
+    required this.buttonText,
+    required this.onButtonPressed,
+    required this.child,
   });
 
   @override

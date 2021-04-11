@@ -10,7 +10,7 @@ import 'upload_step.dart';
 class ListAdBookingCompleted extends StatelessWidget implements UploadStep {
   final Booking booking;
 
-  ListAdBookingCompleted({@required this.booking});
+  ListAdBookingCompleted({required this.booking});
 
   @override
   Widget build(BuildContext context) {

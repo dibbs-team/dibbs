@@ -6,13 +6,13 @@ import '../../../lang/my_localizations.dart';
 
 /// Unmovable list item for adding a new image.
 class NewImage extends StatelessWidget {
-  final key = UniqueKey();
+  final Key key = UniqueKey();
   final void Function() newGalleryImage;
   final void Function() newCameraImage;
 
   NewImage({
-    @required this.newGalleryImage,
-    @required this.newCameraImage,
+    required this.newGalleryImage,
+    required this.newCameraImage,
   });
 
   @override

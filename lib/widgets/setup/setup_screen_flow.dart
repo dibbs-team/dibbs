@@ -17,8 +17,8 @@ class SetupScreenFlow extends StatelessWidget {
   /// Checks if the user is not part of any community.
   Future<bool> _getUserHasNoCommuniy() async {
     final userSnapshot =
-        await _firestore.collection(fs.Collection.users).doc(_user.uid).get();
-    var communities = userSnapshot.data()[fs.User.communities];
+        await _firestore.collection(fs.Collection.users).doc(_user!.uid).get();
+    var communities = userSnapshot.data()![fs.User.communities];
     return communities?.isEmpty ?? true;
   }
 

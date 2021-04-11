@@ -15,7 +15,9 @@ class FindAdDetailsForm extends StatelessWidget implements UploadStep {
   final _titleField = FormInputField.title();
   final _descriptionField = FormInputField.description(AdType.FIND);
   final _priceField = FormInputField.price(AdType.FIND);
-  final _dateRangePicker = DateRangePicker();
+  final _dateRangePicker = DateRangePicker(
+    notifyDatesChanged: () {},
+  );
 
   String get title => _titleField.value;
   String get description => _descriptionField.value;
@@ -24,7 +26,7 @@ class FindAdDetailsForm extends StatelessWidget implements UploadStep {
 
   @override
   bool validate() {
-    return _formKey.currentState.validate();
+    return _formKey.currentState!.validate();
   }
 
   @override

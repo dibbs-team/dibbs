@@ -20,7 +20,7 @@ class ListAdDetailsForm extends StatelessWidget implements UploadStep {
 
   @override
   bool validate() {
-    return _formKey.currentState.validate();
+    return _formKey.currentState!.validate();
   }
 
   @override

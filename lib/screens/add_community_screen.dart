@@ -33,14 +33,14 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
       _foundCommunity = communitySnapshot.exists;
       if (_foundCommunity) {
         _communityCode = code;
-        _communityName = communitySnapshot.data()[fs.Communities.name];
+        _communityName = communitySnapshot.data()![fs.Communities.name];
       }
     });
   }
 
   /// Adds the found community to the signed in user.
   Future<void> _joinFoundCommunity() async {
-    _firestore.collection(fs.Collection.users).doc(_user.uid).update({
+    _firestore.collection(fs.Collection.users).doc(_user!.uid).update({
       fs.User.communities: FieldValue.arrayUnion([_communityCode])
     });
   }
@@ -91,7 +91,7 @@ class _AddCommunityScreenState extends State<AddCommunityScreen> {
                 child: Text(
                   l10n.noCommunityFound,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
                         color: MyColors.errorRed,
                       ),
                 ),

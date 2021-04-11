@@ -9,7 +9,7 @@ class AdItem extends StatelessWidget {
   final Ad ad;
   final Function onDetailClosed;
 
-  AdItem(this.ad, {this.onDetailClosed});
+  AdItem(this.ad, {required this.onDetailClosed});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class AdItem extends StatelessWidget {
         child: Column(
           children: [
             Hero(
-              tag: ad.id,
+              tag: ad.id!,
               child: ClipRRect(
                 borderRadius: MyAttributes.borderRadius,
                 child: AspectRatio(
@@ -62,7 +62,7 @@ class AdItem extends StatelessWidget {
             arguments: ad,
           )
               .then((bookingSuccessful) {
-            if (bookingSuccessful) {
+            if (bookingSuccessful as bool) {
               onDetailClosed(bookingSuccessful);
             }
           });

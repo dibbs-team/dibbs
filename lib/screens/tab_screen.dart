@@ -21,12 +21,12 @@ class _TabScreenState extends State<TabScreen> {
 
   var _selectedIndex = 0;
 
-  List<Widget> _tabs;
+  late List<Widget?> _tabs;
 
   @override
   void initState() {
     super.initState();
-    _tabs = <Widget>[
+    _tabs = <Widget?>[
       //! Modifying this list requires you to update index variables.
       FeedScreen(onReturnFromAdDetail: (bool bookingSuccessful) {
         setState(() {

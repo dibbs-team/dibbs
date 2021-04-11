@@ -15,7 +15,7 @@ class InformationScreen extends StatelessWidget {
     InformationCard(),
   ];
   final controller = PageController();
-  final name = auth.FirebaseAuth.instance.currentUser.displayName;
+  final name = auth.FirebaseAuth.instance.currentUser!.displayName;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class InformationScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    l10n.informationWelcome(name).toUpperCase(),
+                    l10n.informationWelcome(name!).toUpperCase(),
                     style: Theme.of(context).textTheme.headline1,
                     textAlign: TextAlign.center,
                   ),

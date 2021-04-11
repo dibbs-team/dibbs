@@ -11,7 +11,7 @@ class MyLocalizations {
     // If we're given "en_US", we'll use it as-is. If we're
     // given "en", we extract it and use it.
     final String localeName =
-        locale.countryCode == null || locale.countryCode.isEmpty
+        locale.countryCode == null || locale.countryCode!.isEmpty
             ? locale.languageCode
             : locale.toString();
     // We make sure the locale name is in the right format e.g.
@@ -27,7 +27,7 @@ class MyLocalizations {
   /// Retrieve localization resources for the widget tree
   /// corresponding to the given `context`
   static MyLocalizations of(BuildContext context) =>
-      Localizations.of<MyLocalizations>(context, MyLocalizations);
+      Localizations.of<MyLocalizations>(context, MyLocalizations)!;
 
   // ----------------------
   // Declare messages here.

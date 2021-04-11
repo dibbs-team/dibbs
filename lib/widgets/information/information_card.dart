@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class InformationCard extends StatelessWidget {
-  final String title;
-  final String body;
+  final String? title;
+  final String? body;
 
   const InformationCard({
     this.title,
@@ -18,7 +18,7 @@ class InformationCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 24.0),
               child: Text(
-                title,
+                title!,
                 style: Theme.of(context).textTheme.headline2,
               ),
             ),
@@ -27,7 +27,7 @@ class InformationCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Text(
-                  body,
+                  body!,
                   style: Theme.of(context).textTheme.bodyText1,
                   textAlign: TextAlign.center,
                 ),

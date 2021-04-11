@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
@@ -19,7 +21,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
   /// Signs in a user with Google.
   Future<void> _signInWithGoogle() async {
-    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAccount googleUser =
+        await (_googleSignIn.signIn() as FutureOr<GoogleSignInAccount>);
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
 
@@ -28,7 +31,7 @@ class _AuthScreenState extends State<AuthScreen> {
       idToken: googleAuth.idToken,
     );
 
-    final user = (await _auth.signInWithCredential(credential)).user;
+    final user = (await _auth.signInWithCredential(credential)).user!;
 
     await _saveUser(user);
   }
