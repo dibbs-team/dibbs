@@ -12,7 +12,7 @@ import '../utils/firestore_values.dart' as fs;
 class FeedScreen extends StatefulWidget {
   final Function onReturnFromAdDetail;
 
-  FeedScreen({this.onReturnFromAdDetail});
+  FeedScreen({required this.onReturnFromAdDetail});
 
   @override
   _FeedScreenState createState() => _FeedScreenState();

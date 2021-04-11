@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: NetworkImage(user.photoURL),
+                      image: NetworkImage(user!.photoURL!),
                     ),
                   ),
                 ),
@@ -111,7 +111,7 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        user.displayName,
+                        user!.displayName!,
                         maxLines: 2,
                         style: Theme.of(context).textTheme.headline1,
                       ),
@@ -146,13 +146,15 @@ class ProfileScreen extends StatelessWidget {
                 isLive: true, //* Causes a refresh when a new ad is uploaded.
                 header: SizedBox(height: 24.0),
                 itemBuilderType: PaginateBuilderType.gridView,
-                itemBuilder: (index, ctx, documentSnapshot) =>
-                    AdItem(Ad.fromFirestoreObject(documentSnapshot)),
+                itemBuilder: (index, ctx, documentSnapshot) => AdItem(
+                  Ad.fromFirestoreObject(documentSnapshot),
+                  onDetailClosed: (_) {},
+                ),
                 query: FirebaseFirestore.instance
                     .collection(fs.Collection.ads)
                     .where(
                       '${fs.Ad.uploader}.${fs.UserStub.id}',
-                      isEqualTo: user.uid,
+                      isEqualTo: user!.uid,
                     )
                     .where(
                       fs.Ad.complete,

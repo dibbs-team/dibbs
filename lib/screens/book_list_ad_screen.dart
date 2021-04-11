@@ -29,7 +29,7 @@ class BookListAdScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BookListAdScreenArguments args =
-        ModalRoute.of(context).settings.arguments;
+        ModalRoute.of(context)!.settings.arguments as BookListAdScreenArguments;
 
     return _UploadListBookingScreenImpl(args.ad);
   }
@@ -51,13 +51,13 @@ class _UploadListBookingScreenImpl extends StatefulWidget {
 class _UploadListBookingScreenImplState
     extends State<_UploadListBookingScreenImpl> {
   /// The step currently being displayed
-  UploadStep child;
+  late UploadStep child;
 
   /// Handle to form that generate a booking
-  ListBookingForm listBookingForm;
+  late ListBookingForm listBookingForm;
 
   /// Handle Widget where confirmation info is diplayed after a booking has been completed
-  ListAdBookingCompleted listBookingCompleted;
+  ListAdBookingCompleted? listBookingCompleted;
 
   @override
   void initState() {
@@ -74,7 +74,7 @@ class _UploadListBookingScreenImplState
       if (booking != null) {
         setState(() {
           listBookingCompleted = ListAdBookingCompleted(booking: booking);
-          child = listBookingCompleted;
+          child = listBookingCompleted!;
         });
       } else {
         Navigator.of(context).pop(false);
@@ -86,13 +86,13 @@ class _UploadListBookingScreenImplState
 
   /// Creates a Future that uploads a booking to Firestore and return it.
   /// Returns null if upload failed.
-  Future<Booking> _uploadBooking() async {
+  Future<Booking?> _uploadBooking() async {
     // Get information about uploader.
-    final user = auth.FirebaseAuth.instance.currentUser;
+    final user = auth.FirebaseAuth.instance.currentUser!;
     final uploader = UserStub(
       id: user.uid,
-      name: user.displayName,
-      image: user.photoURL,
+      name: user.displayName!,
+      image: user.photoURL!,
     );
 
     var booking = Booking(
@@ -101,7 +101,8 @@ class _UploadListBookingScreenImplState
             uploader: widget.ad.uploader,
             title: widget.ad.title,
             image: widget.ad.images[0]),
-        dates: (child as ListBookingForm).dates,
+        dates: (child as ListBookingForm)
+            .dates!, // dates != null has been validated by form.
         uploader: uploader,
         status: BookingStatus.PENDING);
 

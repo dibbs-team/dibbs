@@ -1,5 +1,4 @@
 import 'package:enum_to_string/enum_to_string.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
@@ -34,7 +33,7 @@ enum BookingStatus {
 
 class Booking extends Equatable {
   /// The unique id of the booking
-  final String id;
+  final String? id;
 
   /// The ad the booking refers to
   final AdStub ad;
@@ -50,14 +49,14 @@ class Booking extends Equatable {
 
   Booking({
     this.id,
-    @required this.ad,
-    @required this.dates,
-    @required this.uploader,
-    @required this.status,
+    required this.ad,
+    required this.dates,
+    required this.uploader,
+    required this.status,
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         id,
         ad,
         dates,
@@ -80,7 +79,7 @@ class Booking extends Equatable {
 
   /// Creates an instance from a DocumentSnapshot from Firestore.
   factory Booking.fromFirestoreObject(DocumentSnapshot snapshot) {
-    final data = snapshot.data();
+    final data = snapshot.data()!;
 
     return Booking(
       id: snapshot.id,
@@ -90,7 +89,7 @@ class Booking extends Equatable {
         end: data[fs.Booking.dates][fs.DateRange.endDate].toDate(),
       ),
       status: EnumToString.fromString(
-          BookingStatus.values, data[fs.Booking.status]),
+          BookingStatus.values, data[fs.Booking.status])!,
       uploader: UserStub.fromFirestoreObject(data[fs.Booking.booker]),
     );
   }

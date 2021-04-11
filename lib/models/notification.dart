@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:equatable/equatable.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,11 +13,11 @@ class Notification extends Equatable {
   final String userId;
 
   Notification({
-    @required this.userId,
-    @required this.time,
-    @required this.type,
-    @required this.image,
-    @required this.fromUser,
+    required this.userId,
+    required this.time,
+    required this.type,
+    required this.image,
+    required this.fromUser,
   });
 
   @override
@@ -32,13 +31,13 @@ class Notification extends Equatable {
 
   /// Creates an instance from a Firestore object.
   factory Notification.fromFirestoreObject(DocumentSnapshot snapshot) {
-    final data = snapshot.data();
+    final data = snapshot.data()!;
     return Notification(
       fromUser: data[fs.Notification.fromUser],
       image: data[fs.Notification.image],
       time: data[fs.Notification.time].toDate(),
       type: EnumToString.fromString(
-          NotificationType.values, data[fs.Notification.type]),
+          NotificationType.values, data[fs.Notification.type])!,
       userId: data[fs.Notification.userId],
     );
   }

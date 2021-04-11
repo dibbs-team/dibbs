@@ -20,7 +20,7 @@ class ImageCarousel extends StatelessWidget {
 
     // Precache the second image.
     if (images.length > 1) {
-      precacheImage(images[1]?.image, context);
+      precacheImage(images[1].image, context);
     }
 
     return Stack(children: [

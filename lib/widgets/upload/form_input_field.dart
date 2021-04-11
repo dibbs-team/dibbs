@@ -10,7 +10,7 @@ class FormInputField extends StatelessWidget {
   final _InputFormType type;
   final bool optional;
   final TextFormField Function(
-          MyLocalizations, String Function(String), TextEditingController)
+          MyLocalizations, String? Function(String?), TextEditingController)
       textFormField;
   final String Function(MyLocalizations) header;
 
@@ -21,7 +21,7 @@ class FormInputField extends StatelessWidget {
         optional = false,
         header = ((MyLocalizations l10n) => l10n.formTitle),
         textFormField = ((MyLocalizations l10n,
-                String Function(String) validator, TextEditingController c) =>
+                String? Function(String?) validator, TextEditingController c) =>
             TextFormField(
               controller: c,
               validator: validator,
@@ -35,7 +35,7 @@ class FormInputField extends StatelessWidget {
             ? l10n.findAdDescriptionTitle
             : l10n.listAdDescriptionTitle),
         textFormField = ((MyLocalizations l10n,
-                String Function(String) validator, TextEditingController c) =>
+                String? Function(String?) validator, TextEditingController c) =>
             TextFormField(
               controller: c,
               validator: validator,
@@ -55,7 +55,7 @@ class FormInputField extends StatelessWidget {
             ? l10n.findAdPriceTitle
             : l10n.listAdPriceTitle),
         textFormField = ((MyLocalizations l10n,
-                String Function(String) validator, TextEditingController c) =>
+                String? Function(String?) validator, TextEditingController c) =>
             TextFormField(
               controller: c,
               validator: validator,
@@ -74,7 +74,7 @@ class FormInputField extends StatelessWidget {
         optional = false,
         header = ((MyLocalizations l10n) => l10n.adInputPhoneTitle),
         textFormField = ((MyLocalizations l10n,
-                String Function(String) validator, TextEditingController c) =>
+                String? Function(String?) validator, TextEditingController c) =>
             TextFormField(
               controller: c,
               validator: validator,
@@ -85,8 +85,8 @@ class FormInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = MyLocalizations.of(context);
-    final validator = (String value) {
-      if (!optional && value.isEmpty) {
+    final validator = (String? value) {
+      if (!optional && value!.isEmpty) {
         return l10n.requiredField;
       }
       return null;

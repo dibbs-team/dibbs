@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(service) => "Sign in with ${service}";
 
-  final messages = _notInlinedMessages(_notInlinedMessages);
+  final Map<String, dynamic> messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "authFailed" : MessageLookupByLibrary.simpleMessage("Authentication failed. Please try again."),
     "description" : MessageLookupByLibrary.simpleMessage("Description"),

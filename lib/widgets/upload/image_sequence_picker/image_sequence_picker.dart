@@ -17,16 +17,16 @@ class ImageSequencePicker extends StatelessWidget {
 
   //* _imagesWhenDisposed is mutable because it is used for saving the picked
   //* images if the state is disposed before the getter is called.
-  List<File> _imagesWhenDisposed;
+  List<File>? _imagesWhenDisposed;
 
   ImageSequencePicker({
-    @required this.imagesPerRow,
-    @required this.maxItems,
+    required this.imagesPerRow,
+    required this.maxItems,
   });
 
   //* If the state has not been disposed we get the picked images directly from
   //* the state otherwise we return the images that were picked at disposal.
-  List<File> get result => _key.currentState?.images ?? _imagesWhenDisposed;
+  List<File>? get result => _key.currentState?.images ?? _imagesWhenDisposed;
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +49,10 @@ class _ImageSequencePickerImpl extends StatefulWidget {
   final int maxItems;
 
   _ImageSequencePickerImpl({
-    @required key,
-    @required this.saveImagesOnDispose,
-    @required this.imagesPerRow,
-    @required this.maxItems,
+    required key,
+    required this.saveImagesOnDispose,
+    required this.imagesPerRow,
+    required this.maxItems,
   }) : super(key: key);
 
   @override

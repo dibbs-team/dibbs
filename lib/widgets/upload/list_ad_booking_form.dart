@@ -13,14 +13,13 @@ class ListBookingForm extends StatelessWidget implements UploadStep {
   /// The price per day of booking the ad
   final int price;
 
-  DateTimeRange get dates => _key?.currentState?.dateRangePicker?.dates;
+  DateTimeRange? get dates => _key.currentState!.dateRangePicker.dates;
 
   ListBookingForm(this.price);
 
   bool validate() {
     // Verify that a date range has been selected
-    print(dates);
-    return dates != null && dates.duration.inDays != 0;
+    return dates != null && dates!.duration.inDays != 0;
   }
 
   @override
@@ -40,8 +39,8 @@ class _ListBookingFormImpl extends StatefulWidget {
   final int price;
 
   _ListBookingFormImpl({
-    @required key,
-    @required this.price,
+    required key,
+    required this.price,
   }) : super(key: key);
 
   @override
@@ -49,7 +48,7 @@ class _ListBookingFormImpl extends StatefulWidget {
 }
 
 class _ListBookingFormImplState extends State<_ListBookingFormImpl> {
-  DateRangePicker dateRangePicker;
+  late DateRangePicker dateRangePicker;
 
   // The amount of days the ad is currently being booked
   int days = 0;
@@ -59,7 +58,7 @@ class _ListBookingFormImplState extends State<_ListBookingFormImpl> {
   /// be updated.
   void setDateTimeRange() {
     setState(() {
-      days = dateRangePicker?.dates?.duration?.inDays ?? 0;
+      days = dateRangePicker.dates.duration.inDays;
     });
   }
 

@@ -1,5 +1,4 @@
 import 'package:enum_to_string/enum_to_string.dart';
-import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 
 import '../utils/firestore_values.dart' as fs;
@@ -21,10 +20,10 @@ abstract class AdStub extends Equatable {
   final AdType adType;
 
   AdStub({
-    @required this.id,
-    @required this.uploader,
-    @required this.title,
-    @required this.adType,
+    required this.id,
+    required this.uploader,
+    required this.title,
+    required this.adType,
   });
 
   /// Returns a map representation suitable for Firestore.
@@ -69,10 +68,10 @@ class ListAdStub extends AdStub {
   List<Object> get props => super.props + [image];
 
   ListAdStub({
-    @required id,
-    @required uploader,
-    @required title,
-    @required this.image,
+    required id,
+    required uploader,
+    required title,
+    required this.image,
   }) : super(
           id: id,
           uploader: uploader,
@@ -93,9 +92,9 @@ class ListAdStub extends AdStub {
 
 class FindAdStub extends AdStub {
   FindAdStub({
-    @required id,
-    @required uploader,
-    @required title,
+    required id,
+    required uploader,
+    required title,
   }) : super(
           id: id,
           uploader: uploader,

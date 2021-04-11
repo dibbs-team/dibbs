@@ -12,7 +12,7 @@ class AdDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ad = ModalRoute.of(context).settings.arguments as Ad;
+    final ad = ModalRoute.of(context)!.settings.arguments as Ad;
     final screenWidth = MediaQuery.of(context).size.width;
     final l10n = MyLocalizations.of(context);
 
@@ -25,7 +25,7 @@ class AdDetailScreen extends StatelessWidget {
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Hero(
-                      tag: ad.id,
+                      tag: ad.id!,
                       child: ImageCarousel(ad.images),
                     ),
                   ),
@@ -92,9 +92,9 @@ class AdDetailScreen extends StatelessWidget {
           Navigator.pushNamed(
             context,
             BookListAdScreen.routeName,
-            arguments: BookListAdScreenArguments(ad),
+            arguments: BookListAdScreenArguments(ad as ListAd),
           ).then((bookingSuccessful) {
-            if (bookingSuccessful) {
+            if (bookingSuccessful as bool) {
               Navigator.of(context).pop(bookingSuccessful);
             }
           });

@@ -8,7 +8,7 @@ import '../utils/ad_types.dart';
 import 'user_stub.dart';
 
 abstract class Ad extends Equatable {
-  final String id;
+  final String? id;
   final String title;
   final String description;
   final int price;
@@ -17,15 +17,15 @@ abstract class Ad extends Equatable {
 
   Ad({
     this.id, //* Not required since ID is not known before adding to Firestore.
-    @required this.title,
-    @required this.description,
-    @required this.price,
-    @required this.uploader,
-    @required this.type,
+    required this.title,
+    required this.description,
+    required this.price,
+    required this.uploader,
+    required this.type,
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         id,
         title,
         description,
@@ -39,7 +39,7 @@ abstract class Ad extends Equatable {
 
   /// Creates an instance from a DocumentSnapshot from Firestore.
   factory Ad.fromFirestoreObject(DocumentSnapshot snapshot) {
-    final data = snapshot.data();
+    final data = snapshot.data()!;
     final type = EnumToString.fromString(AdType.values, data[fs.Ad.type]);
 
     switch (type) {
@@ -75,11 +75,11 @@ class FindAd extends Ad {
 
   FindAd({
     id,
-    @required title,
-    @required description,
-    @required price,
-    @required uploader,
-    @required this.dates,
+    required title,
+    required description,
+    required price,
+    required uploader,
+    required this.dates,
   }) : super(
           id: id,
           title: title,
@@ -90,7 +90,7 @@ class FindAd extends Ad {
         );
 
   @override
-  List<Object> get props => super.props + [dates];
+  List<Object?> get props => super.props + [dates];
 
   @override
   Map<String, dynamic> toFirestoreObject() {
@@ -114,11 +114,11 @@ class ListAd extends Ad {
 
   ListAd({
     id,
-    @required title,
-    @required description,
-    @required price,
-    @required uploader,
-    @required this.images,
+    required title,
+    required description,
+    required price,
+    required uploader,
+    required this.images,
   }) : super(
           id: id,
           title: title,
@@ -129,7 +129,7 @@ class ListAd extends Ad {
         );
 
   @override
-  List<Object> get props => super.props + [images];
+  List<Object?> get props => super.props + [images];
 
   @override
   Map<String, dynamic> toFirestoreObject() {

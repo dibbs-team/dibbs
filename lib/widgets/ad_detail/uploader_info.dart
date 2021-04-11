@@ -4,7 +4,7 @@ class UploaderInfo extends StatelessWidget {
   final String uploaderInfo;
   final String image;
 
-  UploaderInfo({@required this.uploaderInfo, @required this.image});
+  UploaderInfo({required this.uploaderInfo, required this.image});
 
   @override
   Widget build(BuildContext context) {

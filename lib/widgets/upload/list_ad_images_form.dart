@@ -13,7 +13,7 @@ class ListAdImagesForm extends StatelessWidget implements UploadStep {
     maxItems: 6,
   );
 
-  List<File> get images => imageSequencePicker.result;
+  List<File> get images => imageSequencePicker.result!;
 
   @override
   bool validate() {

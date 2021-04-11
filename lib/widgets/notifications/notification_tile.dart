@@ -75,7 +75,7 @@ class NotificationTile extends StatelessWidget {
           ),
           style: Theme.of(context)
               .textTheme
-              .bodyText1
+              .bodyText1!
               .copyWith(color: MyColors.darkGrey),
         ),
       ),

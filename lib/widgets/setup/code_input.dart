@@ -8,8 +8,8 @@ class CodeInput extends StatelessWidget {
   final void Function(String) onChanged;
 
   CodeInput({
-    @required this.onComplete,
-    this.onChanged,
+    required this.onComplete,
+    required this.onChanged,
   });
 
   final BoxDecoration pinPutDecoration = BoxDecoration(

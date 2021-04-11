@@ -9,8 +9,8 @@ class LoginButton extends StatelessWidget {
   final AuthenticationService authenticationService;
 
   LoginButton({
-    @required this.onLoginUser,
-    @required this.authenticationService,
+    required this.onLoginUser,
+    required this.authenticationService,
   });
 
   @override
@@ -19,7 +19,7 @@ class LoginButton extends StatelessWidget {
     switch (authenticationService) {
       case AuthenticationService.GOOGLE:
         return GoogleAuthButton(
-          onPressed: onLoginUser,
+          onPressed: onLoginUser as void Function(),
           text: l10n.signInButtonText('Google'),
         );
       default:

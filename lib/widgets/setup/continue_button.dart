@@ -8,8 +8,8 @@ class ContinueButton extends StatelessWidget {
   final String community;
 
   ContinueButton({
-    @required this.onPressed,
-    @required this.community,
+    required this.onPressed,
+    required this.community,
   });
 
   @override
