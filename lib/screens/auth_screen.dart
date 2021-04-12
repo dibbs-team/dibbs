@@ -21,8 +21,13 @@ class _AuthScreenState extends State<AuthScreen> {
 
   /// Signs in a user with Google.
   Future<void> _signInWithGoogle() async {
-    final GoogleSignInAccount googleUser =
-        await (_googleSignIn.signIn() as FutureOr<GoogleSignInAccount>);
+    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+
+    // Can happen if the user click the back button when selecting google account
+    if (googleUser == null) {
+      return;
+    }
+
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
 
